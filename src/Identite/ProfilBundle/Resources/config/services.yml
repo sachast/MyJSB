@@ -1,0 +1,7 @@
+parameters:
+#    identite_profil.example.class: Identite\ProfilBundle\Example
+
+services:
+#    identite_profil.example:
+#        class: %identite_profil.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
