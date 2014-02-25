@@ -1,5 +1,5 @@
 /* Mise en forme du body */
-body { margin:0; padding:0; background: #fff url(/images/00_bg.jpg) center; background-repeat:repeat-y;  font-family:Verdana, Arial, Helvetica, sans-serif; font-size: 10px; color:#6b6b6b;}
+body { margin:0; padding:0; background: #fff url(/images/00_bg.jpg) center; background-repeat:repeat-y;  font-family:Trebuchet, Arial, Helvetica, sans-serif; font-size: 10px; color:#6b6b6b;}
 
 /*-----------------------------------------------------------*/
 
@@ -19,8 +19,8 @@ body { margin:0; padding:0; background: #fff url(/images/00_bg.jpg) center; back
 /*-----------------------------------------------------------*/
 
 /* Menu principal */
-#menuPrincipal {width: 855px; height: 39px; margin:0 auto 0 auto; padding: 0 25px 0 25px; background-image:url(/images/03_menuBg.gif); list-style:none; font: bold 10px Verdana, Arial, Helvetica, sans-serif; text-align:center;}
-#menuPrincipal ul {height: 39px; margin:0; padding:0; list-style:none; font: bold 10px Verdana, Arial, Helvetica, sans-serif;}
+#menuPrincipal {width: 855px; height: 39px; margin:0 auto 0 auto; padding: 0 25px 0 25px; background-image:url(/images/03_menuBg.gif); list-style:none; font: bold 10px Trebuchet, Arial, Helvetica, sans-serif; text-align:center;}
+#menuPrincipal ul {height: 39px; margin:0; padding:0; list-style:none; font: bold 10px Trebuchet, Arial, Helvetica, sans-serif;}
 #menuPrincipal li  {float:left; background-image: url(/images/menuPrincipalSeparateur.gif); background-repeat:no-repeat; background-position:top right;}
 #menuPrincipal li.imageSeparateur {float:left; width:3px; height: 39px; background-image: url(/images/menuPrincipalSeparateur.gif); background-repeat:no-repeat; background-position:top right;}
 #menuPrincipal a {display: block; width: 87px; height: 27px; margin: 0; padding:12px 0 0 0; text-align:center; text-decoration: none; color:#fff;}
@@ -47,14 +47,14 @@ body { margin:0; padding:0; background: #fff url(/images/00_bg.jpg) center; back
 		#boiteRechercher { width:222px; height: 29px; padding: 11px 0 0 0; margin: 0 0 10px 0; background:url(/images/boiteRecherche.gif) left top no-repeat;}		
 		#boiteRechercher p { float:left; margin:0px; padding:0px;}
 		#boiteRechercher .formulaireRechercher {padding: 0; margin: 0;}
-		#boiteRechercher .formulaireBoiteRechercher {width: 114px; height:14px; font-size:9px; font-family:Verdana, Arial, Helvetica, sans-serif; color: #000; border:1px solid #000; background-color: #fff; margin: 0 5px; padding: 1px 0 1px 5px; float:left;}
+		#boiteRechercher .formulaireBoiteRechercher {width: 114px; height:14px; font-size:9px; font-family:Trebuchet, Arial, Helvetica, sans-serif; color: #000; border:1px solid #000; background-color: #fff; margin: 0 5px; padding: 1px 0 1px 5px; float:left;}
 		
 		/* Boite menu Gauche */
 		#cadreGauche { width:222px; padding: 24px 0 0 0; margin: 0 0 10px 0; background:url(/images/menuGaucheTop.gif) left top no-repeat;}
 		#blocCadreGauche {background: url(/images/menuGaucheBas.gif) left bottom no-repeat;  padding-bottom: 15px;}
 		#blocCadreGauche ul {margin: 0 0 0 0; padding: 0; list-style:none; }
 		#blocCadreGauche li {height:19px; padding: 0;}
-		#blocCadreGauche a {display:block; width:183px; height:19px; padding-left:39px; padding-top:5px; background:url(/images/puceMenuGauche.gif) top left no-repeat; font: 10px Verdana, Arial, Helvetica, sans-serif; color: #000; text-decoration: none;}
+		#blocCadreGauche a {display:block; width:183px; height:19px; padding-left:39px; padding-top:5px; background:url(/images/puceMenuGauche.gif) top left no-repeat; font: 10px Trebuchet, Arial, Helvetica, sans-serif; color: #000; text-decoration: none;}
 		#blocCadreGauche a:link {color: #6b6b6b;}
 		#blocCadreGauche a:visited {color: #6b6b6b;}		
 		#blocCadreGauche a:hover {color: #000; text-decoration: none; background-image:url(/images/puceMenuGaucheOver.gif);}
@@ -65,14 +65,16 @@ body { margin:0; padding:0; background: #fff url(/images/00_bg.jpg) center; back
 		#blocCadreLogin { background: url(/images/menuGaucheBas.gif) left bottom no-repeat;  padding-bottom: 15px; padding-left: 20px;}
 		#blocCadreLogin .formulaire {width: 200px; padding-top:5px;}
 		#blocCadreLogin .formulaire p { padding:0; margin:0; line-height: 12px;}
-		.formulaireBoite {width: 114px; height:14px; font-size:9px; font-family:Verdana, Arial, Helvetica, sans-serif; color: #6b6b6b; border:1px solid #bfc4ca; background-color: #fff; margin: 2px 0; padding:1px;}
+		.formulaireBoite {width: 114px; height:14px; font-size:9px; font-family:Trebuchet, Arial, Helvetica, sans-serif; color: #6b6b6b; border:1px solid #bfc4ca; background-color: #fff; margin: 2px 0; padding:1px;}
 		
 	/*-----------------------------------------------------------*/
 	
 	/* 2) Zone de texte */
 	#zoneTexte {float:left; width: 520px; margin: 0 0 0 30px; padding-left: 30px; border-left: 1px dotted #b7b7b7;}
-	#zoneTexte p {font: 11px Verdana, Arial, Helvetica, sans-serif; color:#6b6b6b; line-height: 19px; text-align:justify;}
-	h1 {font: bold 15px Verdana, Arial, Helvetica, sans-serif; color:#3aa0ff; border-bottom: 1px dotted #b7b7b7; margin:0;}
+	#zoneTexte p {font: 11px Trebuchet, Arial, Helvetica, sans-serif; color:#707173; line-height: 19px; text-align:justify;}
+	h1 {font: bold 15px Trebuchet, Arial, Helvetica, sans-serif; color:#d4006b; border-bottom: 1px dotted #b7b7b7; margin:0;text-transform: uppercase;}
+	h2 {font: bold 15px Trebuchet, Arial, Helvetica, sans-serif; color:#d4006b; border-bottom: 1px dotted #b7b7b7; margin:0;}
+	h3 {font: bold 15px Trebuchet, Arial, Helvetica, sans-serif; color:#b2c900; border-bottom: 1px dotted #b7b7b7; margin:0;}
 	.positionDroit {float:right; margin-left: 15px; border:none;}
 	
 	
@@ -98,5 +100,5 @@ a:hover { text-decoration: underline; color:#000;}
 
 .sansBordure { border: none;}
 
-.galerieBtn {font-size:9px; font-family:Verdana, Arial, Helvetica, sans-serif; color: #fff; border:none; background-color: #000; margin: 2px 0; padding:4px;}
+.galerieBtn {font-size:9px; font-family:Trebuchet, Arial, Helvetica, sans-serif; color: #fff; border:none; background-color: #000; margin: 2px 0; padding:4px;}
 
