@@ -1,3 +1,7 @@
-{% extends "::base.html.twig" %}
+{% extends '::index.html.twig' %}
 
-Hello {{ name }}!
+{% block title %}
+	{{ parent() }}
+	- Hello {{ name }} !
+
+{% endblock %}

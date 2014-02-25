@@ -1,0 +1,142 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+
+<title>{% block title %}MyJSB.Be - La communauté des volontaires JSB{% endblock %}</title>
+
+<!-- Lien du CSS externes Styles.css -->
+{% block stylesheets %}
+	{% stylesheets '../app/Resources/public/css/*' output='css/compiled/Styles.css' %}
+		<link rel="stylesheet" href="{{ asset_url }}" type="text/css" media="all" />
+	{% endstylesheets %}
+{% endblock %}
+
+</head>
+
+<body>
+<a name="top" id="top"></a>
+
+<!-- Top Zone menu du haut -->
+<div id="topMenu">
+	<ul>
+		 <li style="border-left:none;"><a href="#">Plan du site</a></li>
+		 <li><a href="#">Aide</a></li>
+		 <li><a href="#">FAQ</a></li>
+	</ul>
+</div>
+
+
+<!-- Entete du site -->
+<div id="header"></div>
+
+
+<!-- Menu principal -->
+<div id="menuPrincipal">
+<table border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    <td>	
+	<ul>
+		 <li class="imageSeparateur"> <!--ne placer rien dans ce li --></li>
+		 <!--�l�ments du menu principal, vous pouvez ajouter ou supprimer des lignes -->
+		 <li><a class="pageActive">accueil</a></li>
+		 <li><a href="page01.html">infos</a></li>
+		 <li><a href="page02.html">forum</a></li>
+		 <li><a href="page03.html">portfolio</a></li>
+		 <li><a href="page04.html">photos</a></li>
+		 <li><a href="page05.html">bio</a></li>
+		 <li><a href="page06.html">liens</a></li>
+		 <li><a href="page07.html">contact</a></li>
+	</ul>
+	</td>
+  </tr>
+</table>
+</div>
+
+
+
+<!-- Image sous le menu -->
+<div id="SousMenu"></div>
+
+
+
+<!-- Conteneur de contenu -->
+<div id="contenuBg">
+
+
+
+	<!-- Menu de gauche --> 
+	 <div id="menuGauche">
+
+
+		<!-- 1) Boite Rechercher --> 			 	
+		<div id="boiteRechercher">
+			<p><img src="/images/flecheBoiteRechercher.gif" style="margin-top:4px;" alt="puce" /></p>
+			<form action="" method="post" class="formulaireRechercher">
+			<p><input name="rechercher" type="text" value="rechercher" size="13" class="formulaireBoiteRechercher"/></p>
+			<p><input name="ok" type="image" src="/images/boutonFormulaireRechercher.gif" value="ok" /></p>
+			</form>
+		</div>
+		
+		<!-- 2) boite menu gauche --> 
+		<div id="cadreGauche">
+			<div id="blocCadreGauche">
+				<ul>
+					 <li><a href="#">Menu 1</a></li>
+					 <li><a href="#">Menu 2</a></li>
+					 <li><a href="#">Menu 3</a></li>
+					 <li><a href="#">Menu 4</a></li>					 
+					 <li><a href="#">Menu 5</a></li>
+					 <li><a href="#">Menu 6</a></li>
+					 <li><a href="#">Menu 7</a></li>
+
+				</ul>
+			</div>
+		</div>
+
+		
+		<!-- 3) boite login --> 
+		<div id="cadreLogin">
+			<div id="blocCadreLogin">
+				    <form action="" method="post" class="formulaire">
+					  <p>Login</p>
+					  <p>
+					    <input name="login" type="text" value="" size="13" class="formulaireBoite"/>
+					  </p>
+					  <p>Mot de passe</p>
+					  <p><input name="password" type="password" value="" size="13" class="formulaireBoite" /><span style="margin-left:5px;"><input name="envoyer" type="image" src="/images/boutonFormulaire.gif" value="ok" /></span></p>			
+   					</form>
+			</div>
+		</div>
+		
+	 </div>	
+	
+	
+	<!-- Zone de texte --> 
+	 <div id="zoneTexte">
+	 	
+		<h1>accueil</h1>
+	 	
+		<p><a href="/images/imageGrand.jpg" rel="lightbox[photos]" title="Description ICI"><img src="/images/image.jpg" class="positionDroit" alt="image" /></a>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Cras hendrerit nulla in nibh. Phasellus venenatis dapibus lectus. Praesent in purus eu justo lacinia pretium. Maecenas interdum. Praesent non tortor. Maecenas vel nisi. Nullam id erat. Sed at erat eu ipsum mattis mattis. Proin vehicula lorem a diam. Ut aliquet, tortor ac placerat porta, turpis lectus cursus velit, vel venenatis tellus nisl sit amet massa. Maecenas ligula arcu, vulputate at.</p>
+	 	
+		<p>Duis leo. Pellentesque neque. Maecenas vehicula mi ac erat. Donec congue egestas arcu. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Mauris nec dui. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Etiam placerat pede sed dolor. Maecenas odio sapien, luctus et, eleifend a, laoreet ut, elit.<a href="#"> Aenean
+	    facilisis accumsan elit.</a> In augue nisi, elementum at, dignissim vulputate, pretium nonummy, leo. Sed in felis at ligula pharetra euismod. Morbi nulla urna, lobortis in, suscipit in, tempus ac, eros. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Suspendisse risus. Morbi faucibus iaculis justo. Vivamus tincidunt. In sit amet arcu a nibh condimentum pulvinar.</p>
+	 	
+		<!-- Retour Haut --> 
+	 	<p style="text-align: right;"><a href="#top"><img src="/images/ancre.gif" class="sansBordure" alt="Haut de page" /></a></p>
+	 </div>
+
+	
+<!-- Le spacer r�gle un bug d'Internet Explorer, ne pas l'enlever -->
+	<p class="spacer"></p>
+
+</div>
+<!-- Fin de Conteneur de contenu -->
+
+
+<!-- Footer de la page -->
+<div id="footer"><p>Copyright &copy; 200X Votre nom. Tous droits r&eacute;serv&eacute;s. Design par <a href="http://www.jfpariseau.com/" target="_blank">DJI</a> pour <a href="http://www.kitgrafik.com/" target="_blank">Kitgrafik.com</a></p></div>
+
+
+</body>
+</html>
