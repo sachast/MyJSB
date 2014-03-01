@@ -1,0 +1,3 @@
+identite_profil:
+    resource: "@IdentiteProfilBundle/Resources/config/routing.yml"
+    prefix:   /
