@@ -1,0 +1,3 @@
+identitelogin_homepage:
+    pattern:  /login
+    defaults: { _controller: IdentiteloginBundle:Default:index }
