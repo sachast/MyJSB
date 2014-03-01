@@ -1,3 +1,7 @@
+identitelogin:
+    resource: "@IdentiteloginBundle/Resources/config/routing.yml"
+    prefix:   /
+
 identite_profil:
     resource: "@IdentiteProfilBundle/Resources/config/routing.yml"
     prefix:   /
