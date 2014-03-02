@@ -1,0 +1,37 @@
+Identite\ProfilBundle\Entity\IdentifiantsWeb:
+  type: entity
+  fields:
+    id:
+      id: true
+      type: integer
+      generator:
+        strategy: AUTO
+    login:
+      type: string
+      length: 50
+      nullable: false
+    motDePasse:
+      type: string
+      length: 50
+      nullable: false
+    derniereConnection:
+      type: datetime
+      nullable: false
+    valideJusque:
+      type: datetime
+      nullable: true
+    actif:
+      type: boolean
+      nullable: false
+    creeLe:
+      type: datetime
+      nullable: false
+  oneToOne:
+    personne:
+      targetEntity: Identite\Personne
+      inversedBy: identifiantsWeb
+      joinColumns:
+        personne_id:
+          referencedColumnName: id
+          nullable: false
+          unique: true
