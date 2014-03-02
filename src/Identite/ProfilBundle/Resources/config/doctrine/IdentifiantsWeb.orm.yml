@@ -1,0 +1,21 @@
+Identite\ProfilBundle\Entity\IdentifiantsWeb:
+  type: entity
+  fields:
+    id:
+      id: true
+      type: integer
+      generator: { strategy: AUTO }
+
+Identite\ProfilBundle\Entity\IdentifiantsWeb:
+  type: entity
+  table: IdentifiantsWeb
+  id:
+    id:
+      type: integer
+      generator: { strategy: AUTO }
+
+  fields:
+    url:
+      type: string
+      length: 255
+
