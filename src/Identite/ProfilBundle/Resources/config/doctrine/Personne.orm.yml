@@ -29,12 +29,12 @@ Identite\ProfilBundle\Entity\Personne:
       nullable: true
   oneToOne:
     identifiantsWeb:
-      targetEntity: Identite\IdentifiantsWeb
+      targetEntity: IdentifiantsWeb
       mappedBy: personne
   manyToMany:
     role:
       targetEntity: Role
       mappedBy: personne
     permission:
-      targetEntity: Identite\Permission
+      targetEntity: Permission
       mappedBy: personne

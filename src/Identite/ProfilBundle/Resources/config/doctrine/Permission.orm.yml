@@ -16,18 +16,18 @@ Identite\ProfilBundle\Entity\Permission:
       nullable: false
   oneToMany:
     permission:
-      targetEntity: Identite\Permission
+      targetEntity: Permission
       mappedBy: dependDe
   manyToOne:
     dependDe:
-      targetEntity: Identite\Permission
+      targetEntity: Permission
       inversedBy: permission
       joinColumns:
         permission_id:
           referencedColumnName: id
   manyToMany:
     role:
-      targetEntity: Identite\Role
+      targetEntity: Role
       inversedBy: permission
       joinTable:
         name: Role2Permission
@@ -40,7 +40,7 @@ Identite\ProfilBundle\Entity\Permission:
             referencedColumnName: id
             nullable: false
     personne:
-      targetEntity: Identite\Personne
+      targetEntity: Personne
       inversedBy: permission
       joinTable:
         name: Personne2Permission

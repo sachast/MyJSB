@@ -12,7 +12,7 @@ Identite\ProfilBundle\Entity\Role:
       nullable: false
   manyToMany:
     personne:
-      targetEntity: Identite\Personne
+      targetEntity: Personne
       inversedBy: role
       joinTable:
         name: Personne2Role
@@ -25,5 +25,5 @@ Identite\ProfilBundle\Entity\Role:
             referencedColumnName: id
             nullable: false
     permission:
-      targetEntity: Identite\Permission
+      targetEntity: Permission
       mappedBy: role
