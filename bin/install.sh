@@ -16,6 +16,7 @@ git clone git@myjsb.js:MyJSB
 cp Symfony/app/config/parameters.yml MyJSB/app/config/parameters.yml
 cp Symfony/web/app_dev.php MyJSB/web/app_dev.php
 cp Symfony/app/bootstrap.php.cache MyJSB/app/bootstrap.php.cache
+cp Symfony/web/bundles MyJSB/web/bundles
 
 cp -pr Symfony/vendor MyJSB/vendor
 
