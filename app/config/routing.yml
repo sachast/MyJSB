@@ -5,3 +5,5 @@ identite_fiche:
 identite_profil:
     resource: "@IdentiteProfilBundle/Resources/config/routing.yml"
     prefix:   /
+login_check:
+    pattern: /login_check

@@ -7,6 +7,7 @@ security:
         ROLE_SUPER_ADMIN: [ROLE_USER, ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
 
     providers:
+        
         in_memory:
             memory:
                 users:
@@ -22,10 +23,10 @@ security:
             pattern: ^/login$
             anonymous: ~
             
-        #secured_area:
-            #pattern: ^/
-            #form_login: ~
+        secured_area:
+            pattern: ^/
+            form_login: ~
 
 
-    #access_control:
-        #- { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+    access_control:
+        - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }

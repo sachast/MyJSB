@@ -6,6 +6,17 @@
 
 {% endblock %}
 
-{% block titrePage %}Hello !{% endblock %}
+{% block titrePage %}Connection !{% endblock %}
 
-{% block contenu %}Je suis un contenu fort peu banal, mais pas très interessant non plus ;-){% endblock %}
+{% block contenu %}
+	<form action="{{ path('login_check') }}" method="post">
+		<label for="username">Login :</label>
+		<input type="text" id="username" name="_username" value="{{ last_username }}" />
+		<label for="password">Mot de passe :</label>
+		<input type="password" id="password" name="_password" />
+		<button type="submit">login</button>
+	</form>
+
+
+
+{% endblock %}
