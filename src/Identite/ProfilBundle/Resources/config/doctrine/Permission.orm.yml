@@ -15,41 +15,30 @@ Identite\ProfilBundle\Entity\Permission:
       length: 1000
       nullable: false
   oneToMany:
-    permission:
+    Autorise:
       targetEntity: Permission
-      mappedBy: dependDe
+      mappedBy: DependDe
   manyToOne:
-    dependDe:
+    DependDe:
       targetEntity: Permission
-      inversedBy: permission
+      inversedBy: Autorise
       joinColumns:
         permission_id:
           referencedColumnName: id
   manyToMany:
-    role:
-      targetEntity: Role
-      inversedBy: permission
-      joinTable:
-        name: Role2Permission
-        joinColumns:
-          permission_id2:
-            referencedColumnName: id
-            nullable: false
-        inverseJoinColumns:
-          role_id:
-            referencedColumnName: id
-            nullable: false
     personne:
       targetEntity: Personne
       inversedBy: permission
       joinTable:
         name: Personne2Permission
         joinColumns:
-          permission_id2:
+          permission_id:
             referencedColumnName: id
             nullable: false
-            unique: true
         inverseJoinColumns:
           personne_id:
             referencedColumnName: id
             nullable: false
+    role:
+      targetEntity: Role
+      mappedBy: permission

@@ -231,4 +231,47 @@ class Permission
     {
         return $this->personne;
     }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $Autorise;
+
+    /**
+     * @var \Identite\ProfilBundle\Entity\Permission
+     */
+    private $DependDe;
+
+
+    /**
+     * Add Autorise
+     *
+     * @param \Identite\ProfilBundle\Entity\Permission $autorise
+     * @return Permission
+     */
+    public function addAutorise(\Identite\ProfilBundle\Entity\Permission $autorise)
+    {
+        $this->Autorise[] = $autorise;
+
+        return $this;
+    }
+
+    /**
+     * Remove Autorise
+     *
+     * @param \Identite\ProfilBundle\Entity\Permission $autorise
+     */
+    public function removeAutorise(\Identite\ProfilBundle\Entity\Permission $autorise)
+    {
+        $this->Autorise->removeElement($autorise);
+    }
+
+    /**
+     * Get Autorise
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getAutorise()
+    {
+        return $this->Autorise;
+    }
 }

@@ -1,0 +1,62 @@
+Identite\FicheBundle\Entity\Fiche:
+  type: entity
+  fields:
+    id:
+      id: true
+      type: integer
+      generator:
+        strategy: AUTO
+    titre:
+      type: string
+      length: 50
+      nullable: true
+    descriptif:
+      type: string
+      length: 1000
+      nullable: true
+    ageMin:
+      type: float
+      nullable: true
+    ageMax:
+      type: float
+      nullable: true
+    creeLe:
+      type: datetime
+      nullable: true
+    modifieLe:
+      type: datetime
+      nullable: true
+    actif:
+      type: boolean
+      nullable: true
+    publie:
+      type: boolean
+      nullable: true
+  oneToMany:
+    debriefing:
+      targetEntity: Debriefing
+      mappedBy: fiche
+  manyToOne:
+    validePar:
+      targetEntity: Identite\ProfilBundle\Entity\Personne
+      inversedBy: fichesValides
+      joinColumns:
+        validePar:
+          referencedColumnName: id
+  manyToMany:
+    animateursRessources:
+      targetEntity: Identite\ProfilBundle\Entity\Personne
+      inversedBy: ficheRessource
+      joinTable:
+        name: Personne2Fiche
+        joinColumns:
+          fiche_id:
+            referencedColumnName: id
+            nullable: false
+        inverseJoinColumns:
+          personne_id:
+            referencedColumnName: id
+            nullable: false
+    auteurs:
+      targetEntity: Identite\ProfilBundle\Entity\Personne
+      mappedBy: fichesEcrites

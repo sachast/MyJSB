@@ -304,4 +304,207 @@ class Personne
     {
         return $this->permission;
     }
+    /**
+     * @var boolean
+     */
+    private $premisDeConduire;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $fichesValides;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $debriefing;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $fichesEcrites;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $ficheRessource;
+
+
+    /**
+     * Set premisDeConduire
+     *
+     * @param boolean $premisDeConduire
+     * @return Personne
+     */
+    public function setPremisDeConduire($premisDeConduire)
+    {
+        $this->premisDeConduire = $premisDeConduire;
+
+        return $this;
+    }
+
+    /**
+     * Get premisDeConduire
+     *
+     * @return boolean 
+     */
+    public function getPremisDeConduire()
+    {
+        return $this->premisDeConduire;
+    }
+
+    /**
+     * Add identifiantsWeb
+     *
+     * @param \Identite\ProfilBundle\Entity\IdentifiantsWeb $identifiantsWeb
+     * @return Personne
+     */
+    public function addIdentifiantsWeb(\Identite\ProfilBundle\Entity\IdentifiantsWeb $identifiantsWeb)
+    {
+        $this->identifiantsWeb[] = $identifiantsWeb;
+
+        return $this;
+    }
+
+    /**
+     * Remove identifiantsWeb
+     *
+     * @param \Identite\ProfilBundle\Entity\IdentifiantsWeb $identifiantsWeb
+     */
+    public function removeIdentifiantsWeb(\Identite\ProfilBundle\Entity\IdentifiantsWeb $identifiantsWeb)
+    {
+        $this->identifiantsWeb->removeElement($identifiantsWeb);
+    }
+
+    /**
+     * Add fichesValides
+     *
+     * @param \Identite\FicheBundle\Entity\Fiche $fichesValides
+     * @return Personne
+     */
+    public function addFichesValide(\Identite\FicheBundle\Entity\Fiche $fichesValides)
+    {
+        $this->fichesValides[] = $fichesValides;
+
+        return $this;
+    }
+
+    /**
+     * Remove fichesValides
+     *
+     * @param \Identite\FicheBundle\Entity\Fiche $fichesValides
+     */
+    public function removeFichesValide(\Identite\FicheBundle\Entity\Fiche $fichesValides)
+    {
+        $this->fichesValides->removeElement($fichesValides);
+    }
+
+    /**
+     * Get fichesValides
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getFichesValides()
+    {
+        return $this->fichesValides;
+    }
+
+    /**
+     * Add debriefing
+     *
+     * @param \Identite\ProfilBundle\Entity\Debriefing $debriefing
+     * @return Personne
+     */
+    public function addDebriefing(\Identite\ProfilBundle\Entity\Debriefing $debriefing)
+    {
+        $this->debriefing[] = $debriefing;
+
+        return $this;
+    }
+
+    /**
+     * Remove debriefing
+     *
+     * @param \Identite\ProfilBundle\Entity\Debriefing $debriefing
+     */
+    public function removeDebriefing(\Identite\ProfilBundle\Entity\Debriefing $debriefing)
+    {
+        $this->debriefing->removeElement($debriefing);
+    }
+
+    /**
+     * Get debriefing
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getDebriefing()
+    {
+        return $this->debriefing;
+    }
+
+    /**
+     * Add fichesEcrites
+     *
+     * @param \Identite\FicheBundle\Entity\Fiche $fichesEcrites
+     * @return Personne
+     */
+    public function addFichesEcrite(\Identite\FicheBundle\Entity\Fiche $fichesEcrites)
+    {
+        $this->fichesEcrites[] = $fichesEcrites;
+
+        return $this;
+    }
+
+    /**
+     * Remove fichesEcrites
+     *
+     * @param \Identite\FicheBundle\Entity\Fiche $fichesEcrites
+     */
+    public function removeFichesEcrite(\Identite\FicheBundle\Entity\Fiche $fichesEcrites)
+    {
+        $this->fichesEcrites->removeElement($fichesEcrites);
+    }
+
+    /**
+     * Get fichesEcrites
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getFichesEcrites()
+    {
+        return $this->fichesEcrites;
+    }
+
+    /**
+     * Add ficheRessource
+     *
+     * @param \Identite\FicheBundle\Entity\Fiche $ficheRessource
+     * @return Personne
+     */
+    public function addFicheRessource(\Identite\FicheBundle\Entity\Fiche $ficheRessource)
+    {
+        $this->ficheRessource[] = $ficheRessource;
+
+        return $this;
+    }
+
+    /**
+     * Remove ficheRessource
+     *
+     * @param \Identite\FicheBundle\Entity\Fiche $ficheRessource
+     */
+    public function removeFicheRessource(\Identite\FicheBundle\Entity\Fiche $ficheRessource)
+    {
+        $this->ficheRessource->removeElement($ficheRessource);
+    }
+
+    /**
+     * Get ficheRessource
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getFicheRessource()
+    {
+        return $this->ficheRessource;
+    }
 }

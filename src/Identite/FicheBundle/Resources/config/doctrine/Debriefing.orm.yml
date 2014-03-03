@@ -1,4 +1,4 @@
-Identite\ProfilBundle\Entity\IdentifiantsWeb:
+Identite\FicheBundle\Entity\Debriefing:
   type: entity
   fields:
     id:
@@ -6,30 +6,29 @@ Identite\ProfilBundle\Entity\IdentifiantsWeb:
       type: integer
       generator:
         strategy: AUTO
-    login:
+    texte:
       type: string
-      length: 50
-      nullable: false
-    motDePasse:
-      type: string
-      length: 50
-      nullable: false
-    derniereConnection:
-      type: datetime
-      nullable: false
-    valideJusque:
-      type: datetime
-      nullable: true
-    actif:
-      type: boolean
+      length: 1000
       nullable: false
     creeLe:
       type: datetime
       nullable: false
+    modifieLe:
+      type: datetime
+      nullable: false
+    actif:
+      type: boolean
+      nullable: false
   manyToOne:
+    fiche:
+      targetEntity: Fiche
+      inversedBy: debriefing
+      joinColumns:
+        fiche_id:
+          referencedColumnName: id
     personne:
-      targetEntity: Personne
-      inversedBy: identifiantsWeb
+      targetEntity: Identite\ProfilBundle\Entity\Personne
+      inversedBy: debriefing
       joinColumns:
         personne_id:
           referencedColumnName: id

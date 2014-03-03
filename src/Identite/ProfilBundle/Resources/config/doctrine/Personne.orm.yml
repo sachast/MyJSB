@@ -24,17 +24,39 @@ Identite\ProfilBundle\Entity\Personne:
     valideLe:
       type: datetime
       nullable: true
-    permisDeConduire:
-      type: bigint
+    premisDeConduire:
+      type: boolean
       nullable: true
-  oneToOne:
+  oneToMany:
     identifiantsWeb:
       targetEntity: IdentifiantsWeb
       mappedBy: personne
-  manyToMany:
-    role:
-      targetEntity: Role
+    fichesValides:
+      targetEntity: Identite\FicheBundle\Entity\Fiche
+      mappedBy: validePar
+    debriefing:
+      targetEntity: Identite\FicheBundle\Entity\Debriefing
       mappedBy: personne
+  manyToMany:
+    fichesEcrites:
+      targetEntity: Identite\FicheBundle\Entity\Fiche
+      inversedBy: auteurs
+      joinTable:
+        name: Fiche2Personne
+        joinColumns:
+          personne_id:
+            referencedColumnName: id
+            nullable: false
+        inverseJoinColumns:
+          fiche_id:
+            referencedColumnName: id
+            nullable: false
     permission:
       targetEntity: Permission
       mappedBy: personne
+    role:
+      targetEntity: Role
+      mappedBy: personne
+    ficheRessource:
+      targetEntity: Identite\FicheBundle\Entity\Fiche
+      mappedBy: animateursRessources

@@ -26,4 +26,14 @@ Identite\ProfilBundle\Entity\Role:
             nullable: false
     permission:
       targetEntity: Permission
-      mappedBy: role
+      inversedBy: role
+      joinTable:
+        name: Permission2Role
+        joinColumns:
+          role_id:
+            referencedColumnName: id
+            nullable: false
+        inverseJoinColumns:
+          permission_id:
+            referencedColumnName: id
+            nullable: false
