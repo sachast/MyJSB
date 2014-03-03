@@ -3,13 +3,14 @@
 namespace Identite\ProfilBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Security\Core\SecurityContext;
 
 class DefaultController extends Controller
 {
     public function loginAction()
     {
 		    	
-		/*$request = $this->getRequest();
+		$request = $this->getRequest();
 		$session = $request->getSession();
 		// get the login error if there is one
 		if ($request->attributes->has(SecurityContext::AUTHENTICATION_ERROR)) {
@@ -19,16 +20,15 @@ class DefaultController extends Controller
 			$session->remove(SecurityContext::AUTHENTICATION_ERROR);
 		}
 		
-		return $this->render('IdentiteloginBundle:Default:index.html.twig', array(
+		return $this->render('IdentiteProfilBundle:Default:index.html.twig', array(
 		// last username entered by the user
 		'last_username' => $session->get(SecurityContext::LAST_USERNAME),
 		'error'	=> $error,
-		));*/
-    	return $this->indexAction();
+		));
     }
     
-    public function indexAction(){
-    	return $this->render('IdentiteProfilBundle:Default:index.html.twig');
+    public function indexAction($name){
+    	return $this->render('IdentiteProfilBundle:Default:name.html.twig',array('name'=>$name));
     }
     
     public function checkAction()

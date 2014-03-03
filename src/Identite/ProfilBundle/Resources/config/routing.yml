@@ -1,3 +1,14 @@
 identite_profil_homepage:
     pattern:  /hello/{name}
     defaults: { _controller: IdentiteProfilBundle:Default:index }
+    
+identiteprofil_homepage:
+    pattern:  /login
+    defaults: { _controller: IdentiteProfilBundle:Default:login }
+    
+identiteprofil_check:
+    pattern:  /login_check
+    
+identiteprofil_admin:
+    pattern:  /admin
+    defaults: { _controller: IdentiteProfilBundle:Default:admin }
