@@ -15,18 +15,18 @@ class FicheType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('titre')
-            ->add('descriptif')
+            ->add('titre', null, array('label' => 'Mettez votre titre : '))
+            ->add('descriptif', 'textarea', array('label' => 'Décrivez votre activité : '))
             ->add('ageMin')
             ->add('ageMax')
-            ->add('creeLe')
+/*          ->add('creeLe')
             ->add('modifieLe')
             ->add('actif')
             ->add('publie')
             ->add('validePar')
             ->add('animateursRessources')
             ->add('auteurs')
-        ;
+*/        ;
     }
     
     /**

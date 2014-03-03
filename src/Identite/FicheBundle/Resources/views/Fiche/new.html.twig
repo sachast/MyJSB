@@ -1,7 +1,13 @@
-{% extends '::base.html.twig' %}
+{% extends '::index.html.twig' %}
 
-{% block body -%}
-    <h1>Fiche creation</h1>
+{% block titrePage -%}
+
+    Fiche creation
+    
+{% endblock %}
+
+
+{% block contenu -%}
 
     {{ form(form) }}
 

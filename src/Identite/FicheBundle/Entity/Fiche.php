@@ -192,10 +192,12 @@ class Fiche
      * @param \DateTime $creeLe
      * @return Fiche
      */
-    public function setCreeLe($creeLe)
+    public function setCreeLe()
     {
-        $this->creeLe = $creeLe;
-
+        if(!$this->getCreeLe())
+        {
+        	$this->creeLe = new \DateTime();
+        }
         return $this;
     }
 
@@ -217,7 +219,7 @@ class Fiche
      */
     public function setModifieLe($modifieLe)
     {
-        $this->modifieLe = $modifieLe;
+        $this->modifieLe = new \DateTime;
 
         return $this;
     }
@@ -399,4 +401,10 @@ class Fiche
     {
         return $this->auteurs;
     }
+    
+    public function updatedTimestamps()
+    {
+    	$this->setCreeLe();
+    	$this->setModifieLe();
+    }	
 }
