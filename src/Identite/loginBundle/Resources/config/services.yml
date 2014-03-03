@@ -1,7 +1,0 @@
-parameters:
-#    identitelogin.example.class: Identite\loginBundle\Example
-
-services:
-#    identitelogin.example:
-#        class: %identitelogin.example.class%
-#        arguments: [@service_id, "plain_value", %parameter%]
