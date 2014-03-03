@@ -1,5 +1,8 @@
 Identite\FicheBundle\Entity\Fiche:
   type: entity
+  lifecycleCallbacks:
+    prePersist: [setCreeLe]
+    preUpdate: [setModifieLe]
   fields:
     id:
       id: true

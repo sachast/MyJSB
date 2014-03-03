@@ -1,4 +1,7 @@
 <?php
+/**
+* @ORM\HasLifecycleCallbacks
+**/
 
 namespace Identite\FicheBundle\Entity;
 
@@ -192,10 +195,12 @@ class Fiche
      * @param \DateTime $creeLe
      * @return Fiche
      */
-    public function setCreeLe($creeLe)
+    public function setCreeLe()
     {
-        $this->creeLe = $creeLe;
-
+        if(!$this->getCreeLe())
+        {
+            $this->creeLe = new \DateTime();
+        }
         return $this;
     }
 
@@ -215,9 +220,9 @@ class Fiche
      * @param \DateTime $modifieLe
      * @return Fiche
      */
-    public function setModifieLe($modifieLe)
+    public function setModifieLe()
     {
-        $this->modifieLe = $modifieLe;
+        $this->modifieLe = new \DateTime;
 
         return $this;
     }
@@ -399,4 +404,5 @@ class Fiche
     {
         return $this->auteurs;
     }
+   
 }

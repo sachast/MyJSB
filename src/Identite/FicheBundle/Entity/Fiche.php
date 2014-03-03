@@ -2,6 +2,7 @@
 /**
 * @ORM\HasLifecycleCallbacks
 **/
+
 namespace Identite\FicheBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
@@ -196,10 +197,10 @@ class Fiche
      */
     public function setCreeLe()
     {
-        /*if(!$this->getCreeLe())
-        {*/
-            $this->updatedAt = new \DateTime();
-        /*}*/
+        if(!$this->getCreeLe())
+        {
+            $this->creeLe = new \DateTime();
+        }
         return $this;
     }
 
@@ -219,7 +220,7 @@ class Fiche
      * @param \DateTime $modifieLe
      * @return Fiche
      */
-    public function setModifieLe($modifieLe)
+    public function setModifieLe()
     {
         $this->modifieLe = new \DateTime;
 
@@ -403,10 +404,5 @@ class Fiche
     {
         return $this->auteurs;
     }
-    
-    public function updatedTimestamps()
-    {
-    	$this->setCreeLe();
-    	$this->setModifieLe();
-    }	
+   
 }
