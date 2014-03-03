@@ -196,10 +196,10 @@ class Fiche
      */
     public function setCreeLe()
     {
-        if(!$this->getCreeLe())
-        {
-        	$this->creeLe = new \DateTime();
-        }
+        /*if(!$this->getCreeLe())
+        {*/
+            $this->updatedAt = new \DateTime();
+        /*}*/
         return $this;
     }
 
