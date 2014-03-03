@@ -2,10 +2,6 @@ identite_fiche:
     resource: "@IdentiteFicheBundle/Resources/config/routing.yml"
     prefix:   /
 
-identitelogin:
-    resource: "@IdentiteloginBundle/Resources/config/routing.yml"
-    prefix:   /
-
 identite_profil:
     resource: "@IdentiteProfilBundle/Resources/config/routing.yml"
     prefix:   /
