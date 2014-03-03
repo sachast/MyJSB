@@ -1,5 +1,7 @@
 <?php
-
+/**
+* @ORM\HasLifecycleCallbacks
+**/
 namespace Identite\FicheBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
