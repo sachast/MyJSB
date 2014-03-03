@@ -1,0 +1,30 @@
+fiche:
+    pattern:  /
+    defaults: { _controller: "IdentiteFicheBundle:Fiche:index" }
+
+fiche_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "IdentiteFicheBundle:Fiche:show" }
+
+fiche_new:
+    pattern:  /new
+    defaults: { _controller: "IdentiteFicheBundle:Fiche:new" }
+
+fiche_create:
+    pattern:  /create
+    defaults: { _controller: "IdentiteFicheBundle:Fiche:create" }
+    requirements: { _method: post }
+
+fiche_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "IdentiteFicheBundle:Fiche:edit" }
+
+fiche_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "IdentiteFicheBundle:Fiche:update" }
+    requirements: { _method: post|put }
+
+fiche_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "IdentiteFicheBundle:Fiche:delete" }
+    requirements: { _method: post|delete }

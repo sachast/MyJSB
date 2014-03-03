@@ -1,3 +1,7 @@
 identite_fiche_homepage:
     pattern:  /hello/{name}
     defaults: { _controller: IdentiteFicheBundle:Default:index }
+
+IdentiteFicheBundle_fiche:
+        resource: "@IdentiteFicheBundle/Resources/config/routing/fiche.yml"
+        prefix:   /fiche

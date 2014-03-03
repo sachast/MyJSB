@@ -22,10 +22,10 @@ security:
             pattern: ^/login$
             anonymous: ~
             
-        secured_area:
-            pattern: ^/
-            form_login: ~
+        #secured_area:
+            #pattern: ^/
+            #form_login: ~
 
 
-    access_control:
-        - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+    #access_control:
+        #- { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
