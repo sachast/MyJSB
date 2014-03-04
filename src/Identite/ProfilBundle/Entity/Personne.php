@@ -538,4 +538,30 @@ class Personne
     {
         $this->debriefing->removeElement($debriefing);
     }
+
+    /**
+     * Set fichesValides
+     *
+     * @param \Identite\FicheBundle\Entity\Fiche $fichesValides
+     * @return Personne
+     */
+    public function setFichesValides(\Identite\FicheBundle\Entity\Fiche $fichesValides = null)
+    {
+        $this->fichesValides = $fichesValides;
+
+        return $this;
+    }
+
+    /**
+     * Set debriefing
+     *
+     * @param \Identite\FicheBundle\Entity\Debriefing $debriefing
+     * @return Personne
+     */
+    public function setDebriefing(\Identite\FicheBundle\Entity\Debriefing $debriefing = null)
+    {
+        $this->debriefing = $debriefing;
+
+        return $this;
+    }
 }

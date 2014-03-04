@@ -27,10 +27,11 @@ Identite\ProfilBundle\Entity\IdentifiantsWeb:
     creeLe:
       type: datetime
       nullable: false
-  manyToOne:
+  oneToOne:
     personne:
       targetEntity: Personne
       inversedBy: identifiantsWeb
+      cascade: ["persist"]
       joinColumns:
         personne_id:
           referencedColumnName: id

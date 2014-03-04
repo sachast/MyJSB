@@ -5,6 +5,7 @@ namespace Identite\ProfilBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Identite\ProfilBundle\Entity\IdentifiantsWeb;
 
 class PersonneType extends AbstractType
 {
@@ -19,13 +20,13 @@ class PersonneType extends AbstractType
             ->add('prenom')
             ->add('statut')
             ->add('creeLe')
-            //->add('valideLe')
+            ->add('valideLe')
             ->add('premisDeConduire')
-            //->add('fichesEcrites')
-            //->add('permission')
+            ->add('fichesEcrites')
+            ->add('permission')
             ->add('role')
-            //->add('ficheRessource')
-			->add('IdentifiantsWeb', new IdentifiantsWebType())
+            ->add('ficheRessource')
+            ->add('identifiantsweb', new IdentifiantsWebType())
         ;
     }
     

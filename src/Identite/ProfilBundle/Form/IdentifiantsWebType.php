@@ -15,16 +15,13 @@ class IdentifiantsWebType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-			//->add('Personne', new PersonneType())
             ->add('login')
             ->add('motDePasse')
             ->add('derniereConnection')
-            //->add('valideJusque')
+            ->add('valideJusque')
             ->add('actif')
             ->add('creeLe')
-            //->add('personne')
-			
-			
+            ->add('personne')
         ;
     }
     

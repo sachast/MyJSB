@@ -27,10 +27,11 @@ Identite\ProfilBundle\Entity\Personne:
     premisDeConduire:
       type: boolean
       nullable: true
-  oneToMany:
+  oneToOne:
     identifiantsWeb:
       targetEntity: IdentifiantsWeb
       mappedBy: personne
+      cascade: ["persist"]
     fichesValides:
       targetEntity: Identite\FicheBundle\Entity\Fiche
       mappedBy: validePar
