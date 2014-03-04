@@ -1,7 +1,7 @@
 security:
     encoders:
-      Symfony\Component\Security\Core\User\User: plaintext  
-      Identite\ProfilBundle\Entity\IdentifiantsWeb: plaintext
+      Symfony\Component\Security\Core\User\User: sha512  
+      Identite\ProfilBundle\Entity\IdentifiantsWeb: sha512
 
     #role_hierarchy:
         #ROLE_ADMIN:       ROLE_USER

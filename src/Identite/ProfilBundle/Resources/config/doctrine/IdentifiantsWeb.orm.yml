@@ -13,7 +13,7 @@ Identite\ProfilBundle\Entity\IdentifiantsWeb:
       nullable: false
     motDePasse:
       type: string
-      length: 50
+      length: 130
       nullable: false
     derniereConnection:
       type: datetime
