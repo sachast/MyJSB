@@ -1,5 +1,6 @@
 Identite\ProfilBundle\Entity\IdentifiantsWeb:
   type: entity
+  repositoryClass: Identite\ProfilBundle\Entity\IdentifiantsWebRepository
   fields:
     id:
       id: true

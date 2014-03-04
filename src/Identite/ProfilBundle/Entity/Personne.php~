@@ -4,6 +4,10 @@ namespace Identite\ProfilBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
+/*
+ * @ORM\Entity(repositoryClass="Identite\ProfilBundle\Entity\PersonneRepository")
+ */
+
 /**
  * Personne
  */
@@ -222,7 +226,7 @@ class Personne
      * @param \Identite\IdentifiantsWeb $identifiantsWeb
      * @return Personne
      */
-    public function setIdentifiantsWeb(\Identite\IdentifiantsWeb $identifiantsWeb = null)
+    public function setIdentifiantsWeb(IdentifiantsWeb $identifiantsWeb = null)
     {
         $this->identifiantsWeb = $identifiantsWeb;
 
@@ -245,7 +249,7 @@ class Personne
      * @param \Identite\ProfilBundle\Entity\Role $role
      * @return Personne
      */
-    public function addRole(\Identite\ProfilBundle\Entity\Role $role)
+    public function addRole(Role $role)
     {
         $this->role[] = $role;
 
@@ -257,7 +261,7 @@ class Personne
      *
      * @param \Identite\ProfilBundle\Entity\Role $role
      */
-    public function removeRole(\Identite\ProfilBundle\Entity\Role $role)
+    public function removeRole(Role $role)
     {
         $this->role->removeElement($role);
     }
@@ -278,7 +282,7 @@ class Personne
      * @param \Identite\Permission $permission
      * @return Personne
      */
-    public function addPermission(\Identite\Permission $permission)
+    public function addPermission(Permission $permission)
     {
         $this->permission[] = $permission;
 
@@ -290,7 +294,7 @@ class Personne
      *
      * @param \Identite\Permission $permission
      */
-    public function removePermission(\Identite\Permission $permission)
+    public function removePermission(Permission $permission)
     {
         $this->permission->removeElement($permission);
     }
@@ -359,7 +363,7 @@ class Personne
      * @param \Identite\ProfilBundle\Entity\IdentifiantsWeb $identifiantsWeb
      * @return Personne
      */
-    public function addIdentifiantsWeb(\Identite\ProfilBundle\Entity\IdentifiantsWeb $identifiantsWeb)
+    public function addIdentifiantsWeb(IdentifiantsWeb $identifiantsWeb)
     {
         $this->identifiantsWeb[] = $identifiantsWeb;
 
@@ -371,7 +375,7 @@ class Personne
      *
      * @param \Identite\ProfilBundle\Entity\IdentifiantsWeb $identifiantsWeb
      */
-    public function removeIdentifiantsWeb(\Identite\ProfilBundle\Entity\IdentifiantsWeb $identifiantsWeb)
+    public function removeIdentifiantsWeb(IdentifiantsWeb $identifiantsWeb)
     {
         $this->identifiantsWeb->removeElement($identifiantsWeb);
     }
@@ -415,22 +419,22 @@ class Personne
      * @param \Identite\ProfilBundle\Entity\Debriefing $debriefing
      * @return Personne
      */
-    public function addDebriefing(\Identite\ProfilBundle\Entity\Debriefing $debriefing)
+    /*public function addDebriefing(Identite\FicheBundle\Entity\Debriefing $debriefing)
     {
         $this->debriefing[] = $debriefing;
 
         return $this;
-    }
+    }*/
 
     /**
      * Remove debriefing
      *
      * @param \Identite\ProfilBundle\Entity\Debriefing $debriefing
      */
-    public function removeDebriefing(\Identite\ProfilBundle\Entity\Debriefing $debriefing)
+    /*public function removeDebriefing(Debriefing $debriefing)
     {
         $this->debriefing->removeElement($debriefing);
-    }
+    }*/
 
     /**
      * Get debriefing
@@ -506,5 +510,28 @@ class Personne
     public function getFicheRessource()
     {
         return $this->ficheRessource;
+    }
+    
+    /**
+     * Add debriefing
+     *
+     * @param \Identite\FicheBundle\Entity\Debriefing $debriefing
+     * @return Personne
+     */
+    public function addDebriefing(\Identite\FicheBundle\Entity\Debriefing $debriefing)
+    {
+        $this->debriefing[] = $debriefing;
+
+        return $this;
+    }
+
+    /**
+     * Remove debriefing
+     *
+     * @param \Identite\FicheBundle\Entity\Debriefing $debriefing
+     */
+    public function removeDebriefing(\Identite\FicheBundle\Entity\Debriefing $debriefing)
+    {
+        $this->debriefing->removeElement($debriefing);
     }
 }
