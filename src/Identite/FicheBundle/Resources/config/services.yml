@@ -1,6 +1,6 @@
 parameters:
 #    identite_fiche.example.class: Identite\FicheBundle\Example
-
+      
 services:
 #    identite_fiche.example:
 #        class: %identite_fiche.example.class%
