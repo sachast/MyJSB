@@ -8,6 +8,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Identite\FicheBundle\Entity\Fiche;
 use Identite\FicheBundle\Form\FicheType;
 
+
 /**
  * Fiche controller.
  *
@@ -220,4 +221,36 @@ class FicheController extends Controller
             ->getForm()
         ;
     }
+    
+    
+    
+
+    public function rechercheAction(Request $recherche)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $article = $em->getRepository('IdentiteFicheBundle:Fiche')->find($recherche);
+        var_dump($article);
+        return $this->render('IdentiteFicheBundle:Default:index.html.twig', array( 'name' => $article));
+    }
+    
+    
+                                                 
+  /*
+    public function rechercheAction(Request $recherche)
+    {
+        $recherche_Fiche = $recherche->get('recherche');
+        var_dump($recherche_Fiche);
+        //$em = $this->get('doctrine.orm.entity_manager');
+        //$reponse = $bdd->prepare('SELECT * FROM Fiche WHERE titre = 'coin' OR description = 'coin'');
+        //$reponse->execute(array(resultat, resultat));
+        
+        //$affichage = PDO::fetch_assoc(resultat);
+        
+        $repository = $this->getDoctrine()
+                           ->getManager()
+                           ->getRepository('Identite:Fiche');
+        
+        return $this->render('IdentiteFicheBundle:Default:index.html.twig', array('name' => $recherche_Fiche));
+    }
+   */
 }

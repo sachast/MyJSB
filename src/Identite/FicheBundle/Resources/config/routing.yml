@@ -5,3 +5,8 @@ identite_fiche_homepage:
 IdentiteFicheBundle_fiche:
         resource: "@IdentiteFicheBundle/Resources/config/routing/fiche.yml"
         prefix:   /fiche
+        
+rechercherFiche:
+        pattern: /rechercheFiche
+        defaults: { _controller: IdentiteFicheBundle:Fiche:Recherche }
+        
