@@ -1,0 +1,30 @@
+inscription:
+    pattern:  /
+    defaults: { _controller: "IdentiteProfilBundle:Personne:index" }
+
+inscription_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "IdentiteProfilBundle:Personne:show" }
+
+inscription_new:
+    pattern:  /nouveau
+    defaults: { _controller: "IdentiteProfilBundle:Personne:new" }
+
+inscription_create:
+    pattern:  /create
+    defaults: { _controller: "IdentiteProfilBundle:Personne:create" }
+    requirements: { _method: post }
+
+inscription_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "IdentiteProfilBundle:Personne:edit" }
+
+inscription_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "IdentiteProfilBundle:Personne:update" }
+    requirements: { _method: post|put }
+
+inscription_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "IdentiteProfilBundle:Personne:delete" }
+    requirements: { _method: post|delete }

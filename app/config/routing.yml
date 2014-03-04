@@ -7,3 +7,6 @@ identite_profil:
     prefix:   /
 login_check:
     pattern: /login_check
+IdentiteProfilBundle_inscription:
+    resource: "@IdentiteProfilBundle/Resources/config/routing/personne.yml"
+    prefix:    /inscription 

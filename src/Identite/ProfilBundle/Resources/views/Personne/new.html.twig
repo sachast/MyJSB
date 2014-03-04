@@ -1,0 +1,19 @@
+{% extends '::index.html.twig' %}
+
+{% block titrePage %}
+	Inscription a MyJSB
+{% endblock %}	
+
+{% block contenu -%}
+    
+
+    {{ form(form) }}
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('inscription') }}">
+            Back to the list
+        </a>
+    </li>
+</ul>
+{% endblock %}
