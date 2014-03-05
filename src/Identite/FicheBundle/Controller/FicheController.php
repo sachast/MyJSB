@@ -8,7 +8,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Identite\FicheBundle\Entity\Fiche;
 use Identite\FicheBundle\Form\FicheType;
 
-
 /**
  * Fiche controller.
  *
@@ -227,10 +226,44 @@ class FicheController extends Controller
 
     public function rechercheAction(Request $recherche)
     {
+        
+
+        
+        $recherche_Fiche = $recherche->get('recherche');
+        
+        /*
         $em = $this->getDoctrine()->getManager();
-        $article = $em->getRepository('IdentiteFicheBundle:Fiche')->find($recherche);
-        var_dump($article);
-        return $this->render('IdentiteFicheBundle:Default:index.html.twig', array( 'name' => $article));
+        $article = $em->getRepository('IdentiteFicheBundle:Fiche')->findByTitre($recherche_Fiche);
+        */
+
+        //-------------------------------------------
+   
+        $em = $this->getDoctrine()->getManager();
+        $qb = $em->createQueryBuilder();
+        $coin = $qb->select(array('u')) // string 'u' is converted to array internally
+                   ->from('Fiche', 'u')
+                   ->where($qb->expr()->orX(
+                                            $qb->expr()->like('u.$recherche_Fiche', '?2')
+                                            ));
+        $coin = $qb->getQuery()->getResult();
+        //var_dump($recherche_Fiche);
+        return $this->render('IdentiteFicheBundle:Default:index.html.twig', array('name' => $coin));
+
+        
+        
+     /*
+        $query = $this->getEntityManager()
+        ->createQuery("
+                      SELECT * FROM IdentiteFicheBundle:Fiche
+                      WHERE("Titre LIKE :motcle OR Description LIKE :motcle")                      );
+        $query->setParameter('key', '%'.$recherche.'%');
+        return $query->getResult();
+
+        $em = $this->getDoctrine()->getEntityManager();
+        $results = $em->getRepository('IdentiteFicheBundle:Fiche')->findNameContaining($recherche);
+        
+        return $this->render('IdentiteFicheBundle:Default:index.html.twig', array('name' => $resultats));
+      */
     }
     
     
