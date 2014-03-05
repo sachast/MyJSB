@@ -37,6 +37,11 @@ class Role
         $this->personne = new \Doctrine\Common\Collections\ArrayCollection();
         $this->permission = new \Doctrine\Common\Collections\ArrayCollection();
     }
+	
+	public function __toString()
+	{
+		return $this->nom;
+	}
 
     /**
      * Get id

@@ -1,0 +1,52 @@
+{% extends '::index.html.twig' %}
+{% block titrePage%}
+	 Liste des utilisateurs
+{% endblock %}
+{% block contenu %}
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Login</th>
+                <th>Motdepasse</th>
+                <th>Derniereconnection</th>
+                <th>Validejusque</th>
+                <th>Actif</th>
+                <th>Creele</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('inscription_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.login }}</td>
+                <td>{{ entity.motDePasse }}</td>
+                <td>{% if entity.derniereConnection %}{{ entity.derniereConnection|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if entity.valideJusque %}{{ entity.valideJusque|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ entity.actif }}</td>
+                <td>{% if entity.creeLe %}{{ entity.creeLe|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('inscription_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('inscription_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('inscription_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

@@ -1,0 +1,18 @@
+{% extends '::index.html.twig' %}
+{% block titrePage%}
+	 Modification d'un utilisateur {{ user }}
+{% endblock %}
+{% block contenu %}
+   
+
+    {{ form(edit_form) }}
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('inscription') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

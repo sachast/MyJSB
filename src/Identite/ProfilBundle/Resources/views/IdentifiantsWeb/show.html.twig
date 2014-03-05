@@ -1,0 +1,53 @@
+{% extends '::index.html.twig' %}
+{% block titrePage%}
+	 Fiche de {{user}}
+{% endblock %}
+{% block contenu %}
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Login</th>
+                <td>{{ entity.login }}</td>
+            </tr>
+            <tr>
+                <th>Motdepasse</th>
+                <td>{{ entity.motDePasse }}</td>
+            </tr>
+            <tr>
+                <th>Derniereconnection</th>
+                <td>{{ entity.derniereConnection|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>Validejusque</th>
+                <td>{{ entity.valideJusque|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>Actif</th>
+                <td>{{ entity.actif }}</td>
+            </tr>
+            <tr>
+                <th>Creele</th>
+                <td>{{ entity.creeLe|date('Y-m-d H:i:s') }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('inscription') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('inscription_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

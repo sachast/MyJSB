@@ -1,0 +1,30 @@
+inscription:
+    pattern:  /
+    defaults: { _controller: "IdentiteProfilBundle:IdentifiantsWeb:index" }
+
+inscription_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "IdentiteProfilBundle:IdentifiantsWeb:show" }
+
+inscription_new:
+    pattern:  /new
+    defaults: { _controller: "IdentiteProfilBundle:IdentifiantsWeb:new" }
+
+inscription_create:
+    pattern:  /create
+    defaults: { _controller: "IdentiteProfilBundle:IdentifiantsWeb:create" }
+    requirements: { _method: post }
+
+inscription_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "IdentiteProfilBundle:IdentifiantsWeb:edit" }
+
+inscription_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "IdentiteProfilBundle:IdentifiantsWeb:update" }
+    requirements: { _method: post|put }
+
+inscription_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "IdentiteProfilBundle:IdentifiantsWeb:delete" }
+    requirements: { _method: post|delete }

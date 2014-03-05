@@ -404,5 +404,9 @@ class Fiche
     {
         return $this->auteurs;
     }
+    
+    public function __toString(){
+    	return $this->getTitre();
+    }
    
 }

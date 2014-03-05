@@ -25,11 +25,17 @@ security:
         login_firewall:
             pattern: ^/login$
             anonymous: ~
+              
+        inscription_firewall:
+            pattern: ^/inscription/nouveau
+            anonymous: ~
             
         secured_area:
             pattern: ^/
-            form_login: ~
+            form_login:
+             
 
 
     access_control:
         - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/inscription/nouveau, roles: IS_AUTHENTICATED_ANONYMOUSLY }

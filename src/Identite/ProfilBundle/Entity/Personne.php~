@@ -1,5 +1,7 @@
 <?php
-
+/**
+* @ORM\HasLifecycleCallbacks
+**/
 namespace Identite\ProfilBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
@@ -71,6 +73,10 @@ class Personne
         $this->role = new \Doctrine\Common\Collections\ArrayCollection();
         $this->permission = new \Doctrine\Common\Collections\ArrayCollection();
     }
+	public function __toString()
+	{
+		return ' ';
+	}
 
     /**
      * Get id
@@ -534,4 +540,37 @@ class Personne
     {
         $this->debriefing->removeElement($debriefing);
     }
+
+    /**
+     * Set fichesValides
+     *
+     * @param \Identite\FicheBundle\Entity\Fiche $fichesValides
+     * @return Personne
+     */
+    public function setFichesValides(\Identite\FicheBundle\Entity\Fiche $fichesValides = null)
+    {
+        $this->fichesValides = $fichesValides;
+
+        return $this;
+    }
+
+    /**
+     * Set debriefing
+     *
+     * @param \Identite\FicheBundle\Entity\Debriefing $debriefing
+     * @return Personne
+     */
+    public function setDebriefing(\Identite\FicheBundle\Entity\Debriefing $debriefing = null)
+    {
+        $this->debriefing = $debriefing;
+
+        return $this;
+		
+    }
+	public function setCreeLeDate()
+	{
+		$this->creeLe = new \DateTime();
+		return $this;
+	}
+	
 }
