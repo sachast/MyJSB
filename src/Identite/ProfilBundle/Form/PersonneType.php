@@ -18,15 +18,15 @@ class PersonneType extends AbstractType
         $builder
             ->add('nom')
             ->add('prenom')
-            ->add('statut')
-            ->add('creeLe')
-            ->add('valideLe')
+            //->add('statut')
+            //->add('creeLe')
+            //->add('valideLe')
             ->add('premisDeConduire')
-            ->add('fichesEcrites')
-            ->add('permission')
-            ->add('role')
-            ->add('ficheRessource')
-            ->add('identifiantsweb', new IdentifiantsWebType())
+            //->add('fichesEcrites')
+            //->add('permission')
+            //->add('role')
+            //->add('ficheRessource')
+            //->add('identifiantsweb', new IdentifiantsWebType())
         ;
     }
     

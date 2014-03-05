@@ -1,5 +1,8 @@
 <?php
 
+/**
+* @ORM\HasLifecycleCallbacks
+**/
 namespace Identite\ProfilBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
@@ -191,9 +194,17 @@ class IdentifiantsWeb implements AdvancedUserInterface, \Serializable, Equatable
      */
     public function setActif($actif)
     {
-        $this->actif = $actif;
-
-        return $this;
+        
+		$this->actif = $actif;
+		return $this;
+        
+    }
+	 public function setActif1()
+    {
+        
+		$this->actif = 0;
+		return $this;
+        
     }
 
     /**
@@ -212,11 +223,10 @@ class IdentifiantsWeb implements AdvancedUserInterface, \Serializable, Equatable
      * @param \DateTime $creeLe
      * @return IdentifiantsWeb
      */
-    public function setCreeLe($creeLe)
+    public function setCreeLe()
     {
-        $this->creeLe = $creeLe;
-
-        return $this;
+       $this->creeLe = new \DateTime();
+		return $this;
     }
 
     /**
@@ -362,7 +372,20 @@ class IdentifiantsWeb implements AdvancedUserInterface, \Serializable, Equatable
 		return true;
 
 	}
-
+	
+	/**
+     * Set dernierConnection
+     *
+     * @param \DateTime $modifieLe
+     * @return Indentifiantweb
+     */
+	public function setDernierConnection()
+	{
+		$this->derniereConnection = new \DateTime();
+		return $this->getLogin();
+	}
+	
+	
 
 
 }

@@ -1,7 +1,9 @@
-{% extends '::base.html.twig' %}
-
-{% block body -%}
-    <h1>IdentifiantsWeb edit</h1>
+{% extends '::index.html.twig' %}
+{% block titrePage%}
+	 Modification d'un utilisateur {{ user }}
+{% endblock %}
+{% block contenu %}
+   
 
     {{ form(edit_form) }}
 

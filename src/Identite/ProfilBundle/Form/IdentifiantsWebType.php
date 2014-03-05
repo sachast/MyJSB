@@ -17,11 +17,12 @@ class IdentifiantsWebType extends AbstractType
         $builder
             ->add('login')
             ->add('motDePasse')
-            ->add('derniereConnection')
-            ->add('valideJusque')
-            ->add('actif')
-            ->add('creeLe')
+           // ->add('derniereConnection')
+            //->add('valideJusque')
+            //->add('actif')
+            //->add('creeLe')
             ->add('personne')
+			->add('personne', new PersonneType())
         ;
     }
     

@@ -1,5 +1,7 @@
 <?php
-
+/**
+* @ORM\HasLifecycleCallbacks
+**/
 namespace Identite\ProfilBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
@@ -563,5 +565,12 @@ class Personne
         $this->debriefing = $debriefing;
 
         return $this;
+		
     }
+	public function setCreeLeDate()
+	{
+		$this->creeLe = new \DateTime();
+		return $this;
+	}
+	
 }

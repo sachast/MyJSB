@@ -1,5 +1,7 @@
 Identite\ProfilBundle\Entity\Personne:
   type: entity
+  lifecycleCallbacks:
+    prePersist: [setCreeLeDate]
   fields:
     id:
       id: true

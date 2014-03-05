@@ -105,7 +105,9 @@ class IdentifiantsWebController extends Controller
 
         return $this->render('IdentiteProfilBundle:IdentifiantsWeb:show.html.twig', array(
             'entity'      => $entity,
-            'delete_form' => $deleteForm->createView(),        ));
+            'delete_form' => $deleteForm->createView(),
+			'user' => $entity->getPersonne()->getNom() . ' '. $entity->getPersonne()->getPrenom(),
+			));
     }
 
     /**
@@ -129,6 +131,7 @@ class IdentifiantsWebController extends Controller
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
+			'user' => $entity->getLogin(),
         ));
     }
 
