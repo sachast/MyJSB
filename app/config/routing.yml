@@ -8,6 +8,3 @@ identite_profil:
 login_check:
     pattern: /login_check
 
-rechercheFiche:
-    resource: "@IdentiteFicheBundle/Resources/config/routing.yml"
-    prefix: /

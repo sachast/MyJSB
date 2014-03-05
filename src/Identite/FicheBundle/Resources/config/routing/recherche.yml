@@ -1,0 +1,7 @@
+recherche:
+    pattern:  /
+    defaults: { _controller: "IdentiteFicheBundle:Fiche:index" }
+
+recherche_resultats:
+    pattern:  /recheche
+    defaults: { _controller: "IdentiteFicheBundle:Fiche:resultats" }
