@@ -240,29 +240,40 @@ class FicheController extends Controller
     public function rechercheAvanceeAction(Request $request)   //Outil de recherche avancé
     {
         $recherche_motCle = $request->get('motCle');
+        $recherche_age = $request->get('age');
         $recherche_titre = $request->get('titre');
         $recherche_descriptif = $request->get('descriptif');
-        
+        $recherche_age = $request->get('age');
         
         //var_dump($recherche_descriptif);
         //var_dump($recherche_descriptif);
         
+        if($recherche_titre == 'on' && $recherche_descriptif == NULL && $recherche_age != 0){   //titre + age
+            $coin = $this->getDoctrine()->getRepository('IdentiteFicheBundle:Fiche')->rechercherFicheAvance0($recherche_motCle, $recherche_age);
+            
+        }
         
-        if($recherche_titre == 'on' && $recherche_descriptif == NULL){   //titre
+        elseif($recherche_descriptif == 'on' && $recherche_titre == NULL && $recherche_age != 0){ //descriptif + age 
+            $coin = $this->getDoctrine()->getRepository('IdentiteFicheBundle:Fiche')->rechercherFicheAvance1($recherche_motCle, $recherche_age);
+            var_dump($recherche_descriptif);
+        }
+        
+        elseif($recherche_descriptif == 'on' && $recherche_titre == 'on' && $recherche_age != 0 ){ //descriptif ET titre + Age
+            $coin = $this->getDoctrine()->getRepository('IdentiteFicheBundle:Fiche')->rechercherFicheAvance2($recherche_motCle, $recherche_age);
+        }
+        
+        elseif($recherche_titre == 'on' && $recherche_descriptif == NULL){ //titre 
             $coin = $this->getDoctrine()->getRepository('IdentiteFicheBundle:Fiche')->rechercherFiche($recherche_motCle);
-            var_dump($recherche_titre);
-
+            
         }
         
         elseif($recherche_descriptif == 'on' && $recherche_titre == NULL){ //descriptif
-            $coin = $this->getDoctrine()->getRepository('IdentiteFicheBundle:Fiche')->rechercherFicheAvance2($recherche_motCle);
+            $coin = $this->getDoctrine()->getRepository('IdentiteFicheBundle:Fiche')->rechercherFicheAvance3($recherche_motCle);
             var_dump($recherche_descriptif);
         }
         
         elseif($recherche_descriptif == 'on' && $recherche_titre == 'on'){ //descriptif ET titre
-            $coin = $this->getDoctrine()->getRepository('IdentiteFicheBundle:Fiche')->rechercherFicheAvance($recherche_motCle);
-            var_dump($recherche_descriptif);
-            var_dump($recherche_titre);
+            $coin = $this->getDoctrine()->getRepository('IdentiteFicheBundle:Fiche')->rechercherFicheAvance4($recherche_motCle, $recherche_age);
         }
         
         else{
@@ -270,27 +281,4 @@ class FicheController extends Controller
         }
         return $this->render('IdentiteFicheBundle:Recherche:recherche.html.twig', array('resultats' => $coin));
     }
-    
-        /*
-
-    public function rechercheAvanceeAction(Request $request)   //Outil de recherche avancé
-    { 
-        $recherche_titre = $request->get('motCle');
-        $recherche_descriptif = $request->get('descriptif');
-        
-        var_dump($recherche_titre);
-        //var_dump($recherche_descriptif);
-        
-        
-        if ($recherche_titre != '' && $recherche_descriptif != ''){
-            
-            $coin = $this->getDoctrine()->getRepository('IdentiteFicheBundle:Fiche')->rechercherFicheAvance($recherche_titre,$recherche_descriptif);
-        
-   
-        }
-        else{
-            $coin = array();
-        }
-        return $this->render('IdentiteFicheBundle:Recherche:recherche.html.twig', array('resultats' => $coin));
-    }*/
 }
