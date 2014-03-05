@@ -115,7 +115,7 @@ class Role
      * @param \Identite\Permission $permission
      * @return Role
      */
-    public function addPermission(\Identite\Permission $permission)
+    public function addPermission(Permission $permission)
     {
         $this->permission[] = $permission;
 
@@ -127,7 +127,7 @@ class Role
      *
      * @param \Identite\Permission $permission
      */
-    public function removePermission(\Identite\Permission $permission)
+    public function removePermission(Permission $permission)
     {
         $this->permission->removeElement($permission);
     }

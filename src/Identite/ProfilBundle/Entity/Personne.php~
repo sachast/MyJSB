@@ -6,6 +6,7 @@ namespace Identite\ProfilBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
+
 /*
  * @ORM\Entity(repositoryClass="Identite\ProfilBundle\Entity\PersonneRepository")
  */
@@ -572,5 +573,6 @@ class Personne
 		$this->creeLe = new \DateTime();
 		return $this;
 	}
+
 	
 }

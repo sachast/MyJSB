@@ -303,7 +303,7 @@ class IdentifiantsWeb implements AdvancedUserInterface, \Serializable, Equatable
      * @see \Symfony\Component\Security\Core\User\UserInterface::getSalt()
     */
     public function getSalt() {
-    	return null;
+    	return 'sha512';
     
     }
     
