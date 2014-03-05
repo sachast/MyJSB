@@ -41,6 +41,13 @@ class IdentifiantsWebController extends Controller
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+			
+			$factory = $this->get('security.encoder_factory');
+			$encoder = $factory->getEncoder($entity);
+			$password = $encoder->encodePassword('test','sha512');
+			$entity->setmotDePasse($password);
+			
+			
             $em->persist($entity);
             $em->flush();
 

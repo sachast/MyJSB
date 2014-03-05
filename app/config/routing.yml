@@ -7,6 +7,8 @@ identite_profil:
     prefix:   /
 login_check:
     pattern: /login_check
+logout:
+    path: /deconnection
 IdentiteProfilBundle_inscription:
     resource: "@IdentiteProfilBundle/Resources/config/routing/identifiantsweb.yml"
     prefix:    /inscription 

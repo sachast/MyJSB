@@ -25,6 +25,7 @@ security:
         login_firewall:
             pattern: ^/login$
             anonymous: ~
+         
               
         inscription_firewall:
             pattern: ^/inscription/nouveau
@@ -32,8 +33,10 @@ security:
             
         secured_area:
             pattern: ^/
-            form_login:
-             
+            form_login: ~
+            logout:
+               path: /logout
+               target: /
 
 
     access_control:
