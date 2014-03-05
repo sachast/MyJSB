@@ -81,7 +81,7 @@ class Personne
 	}
 
     /**
-     * Get id
+     * Gremoveet id
      *
      * @return integer 
      */
@@ -237,7 +237,7 @@ class Personne
     public function setIdentifiantsWeb(IdentifiantsWeb $identifiantsWeb = null)
     {
         $this->identifiantsWeb = $identifiantsWeb;
-
+        $identifiantsWeb->setPersonne($this);
         return $this;
     }
 

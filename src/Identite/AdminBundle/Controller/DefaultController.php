@@ -71,6 +71,13 @@ class DefaultController extends Controller
     	$editForm->handleRequest($request);
     
     	if ($editForm->isValid()) {
+    		if($entity->getValideLe() == null)
+    		{
+    			$entity->setValideLe(new \DateTime());
+    			$iw = $em->getRepository('IdentiteProfilBundle:IdentifiantsWeb')->findOneByPersonne($id);
+    			$iw->setActif(true);
+    			//$entity->setIdentifiantsWeb($iw);
+    		}
     		$em->flush();
     
     		return $this->redirect($this->generateUrl('validation_utilisateurs'));

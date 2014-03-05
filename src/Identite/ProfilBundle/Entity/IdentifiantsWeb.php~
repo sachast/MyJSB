@@ -245,7 +245,7 @@ class IdentifiantsWeb implements AdvancedUserInterface, \Serializable, Equatable
      * @param \Identite\ProfilBundle\Entity\Personne $personne
      * @return IdentifiantsWeb
      */
-    public function setPersonne(\Identite\ProfilBundle\Entity\Personne $personne = null)
+    public function setPersonne(Personne $personne = null)
     {
         $this->personne = $personne;
 

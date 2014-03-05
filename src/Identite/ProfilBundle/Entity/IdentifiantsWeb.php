@@ -245,7 +245,7 @@ class IdentifiantsWeb implements AdvancedUserInterface, \Serializable, Equatable
      * @param \Identite\ProfilBundle\Entity\Personne $personne
      * @return IdentifiantsWeb
      */
-    public function setPersonne(\Identite\ProfilBundle\Entity\Personne $personne = null)
+    public function setPersonne(Personne $personne = null)
     {
         $this->personne = $personne;
 
@@ -339,7 +339,13 @@ class IdentifiantsWeb implements AdvancedUserInterface, \Serializable, Equatable
 	public function isAccountNonExpired() {
 		// TODO: Auto-generated method stub
 		
-		return true;
+		if($this->getValideJusque()!=null)
+		{
+			$dt = new \DateTime();
+			return $dt < $this->valideJusque;
+		}else{
+			return true;
+		}
 
 	}
 	
@@ -348,7 +354,7 @@ class IdentifiantsWeb implements AdvancedUserInterface, \Serializable, Equatable
 	 * @see \Symfony\Component\Security\Core\User\AdvancedUserInterface::isAccountNonLocked()
 	 */
 	public function isAccountNonLocked() {
-		// TODO: Auto-generated method stub
+		
 		return true;
 	}
 	
@@ -369,7 +375,7 @@ class IdentifiantsWeb implements AdvancedUserInterface, \Serializable, Equatable
 	public function isEnabled() {
 		// TODO: Auto-generated method stub
 		
-		return true;
+		return $this->actif;
 
 	}
 	
