@@ -1,0 +1,28 @@
+{% extends '::index.html.twig' %}
+
+{% block title %}
+	{{ parent() }}
+	- Hello !
+
+{% endblock %}
+
+{% block titrePage %}Recherche de fiche !{% endblock %}
+
+{% block contenu %}
+
+<ul>
+
+    <li> titre - descriptif</li>
+    </br></br>
+    
+    
+{% for resultat in resultats %}
+
+    <li>{{ resultat.titre }} - {{ resultat.descriptif }}</li>
+{% endfor %}
+
+</ul>
+
+
+{% endblock %}
+

@@ -14,4 +14,12 @@ class FicheRepository extends EntityRepository{
 		)->getResult();
 		
 	}
+    
+    public function rechercherFiche_motCle($motCle){
+		
+		return $this->getEntityManager()->createQuery(
+        "SELECT f FROM IdentiteFicheBundle:Fiche f WHERE f.titre LIKE '%$motCle%' OR f.descriptif LIKE '%$motCle%'"
+        )->getResult();
+		
+	}
 }

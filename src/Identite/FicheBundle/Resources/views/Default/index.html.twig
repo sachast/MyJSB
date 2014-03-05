@@ -1,6 +1,12 @@
 <ul>
+
+    <li> titre - descriptif</li>
+    </br></br>
+    
+    
 {% for resultat in resultats %}
-    <li>{{ resultat.titre }}</li>
+
+    <li>{{ resultat.titre }} - {{ resultat.descriptif }}</li>
 {% endfor %}
 
 </ul>

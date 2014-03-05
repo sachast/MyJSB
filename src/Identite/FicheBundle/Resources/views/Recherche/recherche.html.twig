@@ -1,0 +1,35 @@
+{% extends '::index.html.twig' %}
+
+{% block title %}
+	{{ parent() }}
+	- Hello !
+
+{% endblock %}
+
+{% block titrePage %}Recherche de fiche !{% endblock %}
+
+{% block contenu %}
+	<form action="{{ path('recherche') }}" method="post">
+		<label for="username">Recherche :</label>
+		<input type="text" id="motCle" name="motCle" />
+		<button type="submit">Rechercher</button>
+	</form>
+
+
+
+<ul>
+
+    <li> titre - descriptif</li>
+    </br></br>
+    
+    
+{% for resultat in resultats %}
+
+    <li>{{ resultat.titre }} - {{ resultat.descriptif }}</li>
+{% endfor %}
+
+</ul>
+
+
+{% endblock %}
+

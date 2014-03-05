@@ -224,7 +224,7 @@ class FicheController extends Controller
     
     
 
-    public function rechercheAction(Request $recherche)
+    public function rechercheAction(Request $recherche) //Outil de recherche à gauche du site
     {
         
 
@@ -233,29 +233,19 @@ class FicheController extends Controller
         
         
         return $this->render('IdentiteFicheBundle:Default:index.html.twig', array(
-        		'resultats' => $this->getDoctrine()->getRepository('IdentiteFicheBundle:Fiche')->rechercherFiche('4','ageMin'),
+        		'resultats' => $this->getDoctrine()->getRepository('IdentiteFicheBundle:Fiche')->rechercherFiche($recherche_Fiche,'titre'),
         ));
 
     }
     
-    
-                                                 
-  /*
-    public function rechercheAction(Request $recherche)
+    public function rechercheAvanceeAction(Request $motCle) //Outil de recherche avancé
     {
-        $recherche_Fiche = $recherche->get('recherche');
-        var_dump($recherche_Fiche);
-        //$em = $this->get('doctrine.orm.entity_manager');
-        //$reponse = $bdd->prepare('SELECT * FROM Fiche WHERE titre = 'coin' OR description = 'coin'');
-        //$reponse->execute(array(resultat, resultat));
+     
+        $recherche_Fiche_motCle = $motCle->get('motCle');
         
-        //$affichage = PDO::fetch_assoc(resultat);
+        return $this->render('IdentiteFicheBundle:Recherche:recherche.html.twig', array(
+                'resultats' => $this->getDoctrine()->getRepository('IdentiteFicheBundle:Fiche')->rechercherFiche($recherche_Fiche_motCle,'titre'),
+        ));
         
-        $repository = $this->getDoctrine()
-                           ->getManager()
-                           ->getRepository('Identite:Fiche');
-        
-        return $this->render('IdentiteFicheBundle:Default:index.html.twig', array('name' => $recherche_Fiche));
     }
-   */
 }
