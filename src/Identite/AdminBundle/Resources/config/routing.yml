@@ -1,0 +1,16 @@
+identite_admin_homepage:
+    pattern:  /admin
+    defaults: { _controller: IdentiteAdminBundle:Default:index }
+    
+validation_utilisateurs:
+    pattern: /validation
+    defaults: { _controller: IdentiteAdminBundle:Default:listeUtilisateursNonValide }
+    
+valider_un_utilisateur:
+    pattern: /validation/{id}
+    defaults: { _controller: IdentiteAdminBundle:Default:valider }
+    
+confirmer_un_utilisateur:
+    pattern: /validation/{id}/confirmer
+    defaults: { _controller: IdentiteAdminBundle:Default:update }
+    

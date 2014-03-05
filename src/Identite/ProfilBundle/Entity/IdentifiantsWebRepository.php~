@@ -32,32 +32,19 @@ class IdentifiantsWebRepository extends EntityRepository implements UserProvider
 	
 	public function refreshUser(UserInterface $user){
 		
-<<<<<<< HEAD
-		if(!$user instanceof Personne)
-=======
 		if(!$user instanceof IdentifiantsWeb)
->>>>>>> rechercheFiches
 		{
 			throw new UnsupportedUserException();
 		}
-		
-<<<<<<< HEAD
-		return $this->loadUserByUsername($user);
-=======
 		return $this->find($user->getId());
->>>>>>> rechercheFiches
 	}
 	
 	/* (non-PHPdoc)
 	 * @see \Symfony\Component\Security\Core\User\UserProviderInterface::supportsClass()
 	 */
 	public function supportsClass($class) {
-		
-<<<<<<< HEAD
-		return $class = 'Identite\ProfilBundle\Entity\Personne';
-=======
+    
 		return $class = 'IdentifiantsWeb';
->>>>>>> rechercheFiches
 
 	}
 

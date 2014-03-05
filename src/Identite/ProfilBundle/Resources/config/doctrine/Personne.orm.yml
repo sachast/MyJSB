@@ -1,5 +1,8 @@
 Identite\ProfilBundle\Entity\Personne:
   type: entity
+  repositoryClass: Identite\ProfilBundle\Entity\PersonneRepository
+  lifecycleCallbacks:
+    prePersist: [setCreeLeDate]
   fields:
     id:
       id: true
@@ -27,10 +30,11 @@ Identite\ProfilBundle\Entity\Personne:
     premisDeConduire:
       type: boolean
       nullable: true
-  oneToMany:
+  oneToOne:
     identifiantsWeb:
       targetEntity: IdentifiantsWeb
       mappedBy: personne
+      cascade: ["persist"]
     fichesValides:
       targetEntity: Identite\FicheBundle\Entity\Fiche
       mappedBy: validePar
@@ -57,6 +61,7 @@ Identite\ProfilBundle\Entity\Personne:
     role:
       targetEntity: Role
       mappedBy: personne
+      cascade: ["persist"]
     ficheRessource:
       targetEntity: Identite\FicheBundle\Entity\Fiche
       mappedBy: animateursRessources

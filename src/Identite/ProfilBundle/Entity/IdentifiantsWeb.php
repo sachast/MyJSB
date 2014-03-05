@@ -1,5 +1,8 @@
 <?php
 
+/**
+* @ORM\HasLifecycleCallbacks
+**/
 namespace Identite\ProfilBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
@@ -191,9 +194,17 @@ class IdentifiantsWeb implements AdvancedUserInterface, \Serializable, Equatable
      */
     public function setActif($actif)
     {
-        $this->actif = $actif;
-
-        return $this;
+        
+		$this->actif = $actif;
+		return $this;
+        
+    }
+	 public function setActif1()
+    {
+        
+		$this->actif = 0;
+		return $this;
+        
     }
 
     /**
@@ -212,11 +223,10 @@ class IdentifiantsWeb implements AdvancedUserInterface, \Serializable, Equatable
      * @param \DateTime $creeLe
      * @return IdentifiantsWeb
      */
-    public function setCreeLe($creeLe)
+    public function setCreeLe()
     {
-        $this->creeLe = $creeLe;
-
-        return $this;
+       $this->creeLe = new \DateTime();
+		return $this;
     }
 
     /**
@@ -235,7 +245,7 @@ class IdentifiantsWeb implements AdvancedUserInterface, \Serializable, Equatable
      * @param \Identite\ProfilBundle\Entity\Personne $personne
      * @return IdentifiantsWeb
      */
-    public function setPersonne(\Identite\ProfilBundle\Entity\Personne $personne = null)
+    public function setPersonne(Personne $personne = null)
     {
         $this->personne = $personne;
 
@@ -293,7 +303,7 @@ class IdentifiantsWeb implements AdvancedUserInterface, \Serializable, Equatable
      * @see \Symfony\Component\Security\Core\User\UserInterface::getSalt()
     */
     public function getSalt() {
-    	return null;
+    	return 'sha512';
     
     }
     
@@ -329,7 +339,13 @@ class IdentifiantsWeb implements AdvancedUserInterface, \Serializable, Equatable
 	public function isAccountNonExpired() {
 		// TODO: Auto-generated method stub
 		
-		return true;
+		if($this->getValideJusque()!=null)
+		{
+			$dt = new \DateTime();
+			return $dt < $this->valideJusque;
+		}else{
+			return true;
+		}
 
 	}
 	
@@ -338,7 +354,7 @@ class IdentifiantsWeb implements AdvancedUserInterface, \Serializable, Equatable
 	 * @see \Symfony\Component\Security\Core\User\AdvancedUserInterface::isAccountNonLocked()
 	 */
 	public function isAccountNonLocked() {
-		// TODO: Auto-generated method stub
+		
 		return true;
 	}
 	
@@ -359,10 +375,23 @@ class IdentifiantsWeb implements AdvancedUserInterface, \Serializable, Equatable
 	public function isEnabled() {
 		// TODO: Auto-generated method stub
 		
-		return true;
+		return $this->actif;
 
 	}
-
+	
+	/**
+     * Set dernierConnection
+     *
+     * @param \DateTime $modifieLe
+     * @return Indentifiantweb
+     */
+	public function setDernierConnection()
+	{
+		$this->derniereConnection = new \DateTime();
+		return $this->getLogin();
+	}
+	
+	
 
 
 }

@@ -1,0 +1,7 @@
+parameters:
+#    identite_admin.example.class: Identite\AdminBundle\Example
+
+services:
+#    identite_admin.example:
+#        class: %identite_admin.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

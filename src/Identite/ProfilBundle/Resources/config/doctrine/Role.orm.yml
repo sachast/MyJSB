@@ -14,6 +14,7 @@ Identite\ProfilBundle\Entity\Role:
     personne:
       targetEntity: Personne
       inversedBy: role
+      cascade: ["persist"]
       joinTable:
         name: Personne2Role
         joinColumns:

@@ -1,5 +1,8 @@
 Identite\ProfilBundle\Entity\IdentifiantsWeb:
   type: entity
+  lifecycleCallbacks:
+    prePersist: [setCreeLe, setActif1]    
+    loadClassMetadata: [setDernierConnection]
   repositoryClass: Identite\ProfilBundle\Entity\IdentifiantsWebRepository
   fields:
     id:
@@ -13,11 +16,11 @@ Identite\ProfilBundle\Entity\IdentifiantsWeb:
       nullable: false
     motDePasse:
       type: string
-      length: 50
+      length: 130
       nullable: false
     derniereConnection:
       type: datetime
-      nullable: false
+      nullable: true
     valideJusque:
       type: datetime
       nullable: true
@@ -27,10 +30,11 @@ Identite\ProfilBundle\Entity\IdentifiantsWeb:
     creeLe:
       type: datetime
       nullable: false
-  manyToOne:
+  oneToOne:
     personne:
       targetEntity: Personne
       inversedBy: identifiantsWeb
+      cascade: ["persist"]
       joinColumns:
         personne_id:
           referencedColumnName: id

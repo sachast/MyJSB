@@ -1,7 +1,7 @@
 security:
     encoders:
-      Symfony\Component\Security\Core\User\User: plaintext  
-      Identite\ProfilBundle\Entity\IdentifiantsWeb: plaintext
+      Symfony\Component\Security\Core\User\User: sha512  
+      Identite\ProfilBundle\Entity\IdentifiantsWeb: sha512
 
     #role_hierarchy:
         #ROLE_ADMIN:       ROLE_USER
@@ -25,11 +25,20 @@ security:
         login_firewall:
             pattern: ^/login$
             anonymous: ~
+         
+              
+        inscription_firewall:
+            pattern: ^/inscription
+            anonymous: ~
             
         secured_area:
             pattern: ^/
             form_login: ~
+            logout:
+               path: /deconnection
+               target: /
 
 
     access_control:
         - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/inscription, roles: IS_AUTHENTICATED_ANONYMOUSLY }

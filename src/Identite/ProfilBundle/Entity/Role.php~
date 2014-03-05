@@ -37,6 +37,11 @@ class Role
         $this->personne = new \Doctrine\Common\Collections\ArrayCollection();
         $this->permission = new \Doctrine\Common\Collections\ArrayCollection();
     }
+	
+	public function __toString()
+	{
+		return $this->nom;
+	}
 
     /**
      * Get id
@@ -77,7 +82,7 @@ class Role
      * @param \Identite\Personne $personne
      * @return Role
      */
-    public function addPersonne(\Identite\Personne $personne)
+    public function addPersonne(Personne $personne)
     {
         $this->personne[] = $personne;
 
@@ -89,7 +94,7 @@ class Role
      *
      * @param \Identite\Personne $personne
      */
-    public function removePersonne(\Identite\Personne $personne)
+    public function removePersonne(Personne $personne)
     {
         $this->personne->removeElement($personne);
     }
@@ -110,7 +115,7 @@ class Role
      * @param \Identite\Permission $permission
      * @return Role
      */
-    public function addPermission(\Identite\Permission $permission)
+    public function addPermission(Permission $permission)
     {
         $this->permission[] = $permission;
 
@@ -122,7 +127,7 @@ class Role
      *
      * @param \Identite\Permission $permission
      */
-    public function removePermission(\Identite\Permission $permission)
+    public function removePermission(Permission $permission)
     {
         $this->permission->removeElement($permission);
     }
