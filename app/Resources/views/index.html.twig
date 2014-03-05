@@ -77,12 +77,15 @@
 		<div id="boiteRechercher">
 			{% block rechercher %}
 			<p><img src="/images/flecheBoiteRechercher.gif" style="margin-top:4px;" alt="puce" /></p>
-			<form action="" method="post" class="formulaireRechercher">
-			<p><input name="rechercher" type="text" value="rechercher" size="13" class="formulaireBoiteRechercher"/></p>
+			<form action="/rechercheFiche" method="post" class="formulaireRechercher">
+			<p><input name="recherche" type="text" value="recherche" size="13" class="formulaireBoiteRechercher"/></p>
 			<p><input name="ok" type="image" src="/images/boutonFormulaireRechercher.gif" value="ok" /></p>
 			</form>
 			{% endblock %}
 		</div>
+         
+         
+         
 		
 		<!-- 2) boite menu gauche --> 
 		<div id="cadreGauche">

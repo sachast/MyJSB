@@ -10,7 +10,3 @@
 /bin/
 /composer.phar
 .metadata/
-MyJsb.xcworkspace/
-.gitignore
-.project
-.DS_Store
