@@ -231,39 +231,11 @@ class FicheController extends Controller
         
         $recherche_Fiche = $recherche->get('recherche');
         
-        /*
-        $em = $this->getDoctrine()->getManager();
-        $article = $em->getRepository('IdentiteFicheBundle:Fiche')->findByTitre($recherche_Fiche);
-        */
-
-        //-------------------------------------------
-   
-        $em = $this->getDoctrine()->getManager();
-        $qb = $em->createQueryBuilder();
-        $coin = $qb->select(array('u')) // string 'u' is converted to array internally
-                   ->from('Fiche', 'u')
-                   ->where($qb->expr()->orX(
-                                            $qb->expr()->like('u.$recherche_Fiche', '?2')
-                                            ));
-        $coin = $qb->getQuery()->getResult();
-        //var_dump($recherche_Fiche);
-        return $this->render('IdentiteFicheBundle:Default:index.html.twig', array('name' => $coin));
-
         
-        
-     /*
-        $query = $this->getEntityManager()
-        ->createQuery("
-                      SELECT * FROM IdentiteFicheBundle:Fiche
-                      WHERE("Titre LIKE :motcle OR Description LIKE :motcle")                      );
-        $query->setParameter('key', '%'.$recherche.'%');
-        return $query->getResult();
+        return $this->render('IdentiteFicheBundle:Default:index.html.twig', array(
+        		'resultats' => $this->getDoctrine()->getRepository('IdentiteFicheBundle:Fiche')->rechercherFiche('4','ageMin'),
+        ));
 
-        $em = $this->getDoctrine()->getEntityManager();
-        $results = $em->getRepository('IdentiteFicheBundle:Fiche')->findNameContaining($recherche);
-        
-        return $this->render('IdentiteFicheBundle:Default:index.html.twig', array('name' => $resultats));
-      */
     }
     
     
