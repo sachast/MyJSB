@@ -224,28 +224,73 @@ class FicheController extends Controller
     
     
 
-    public function rechercheAction(Request $recherche) //Outil de recherche à gauche du site
+    public function rechercheAction(Request $recherche) //Outil de recherche à gauche du site (titre)
     {
-        
-
-        
-        $recherche_Fiche = $recherche->get('recherche');
+   
+        $recherche_titre = $recherche->get('recherche');
         
         
         return $this->render('IdentiteFicheBundle:Default:index.html.twig', array(
-        		'resultats' => $this->getDoctrine()->getRepository('IdentiteFicheBundle:Fiche')->rechercherFiche($recherche_Fiche,'titre'),
+        		'resultats' => $this->getDoctrine()->getRepository('IdentiteFicheBundle:Fiche')->rechercherFiche($recherche_titre),
         ));
-
+        
     }
     
-    public function rechercheAvanceeAction(Request $motCle) //Outil de recherche avancé
+    
+    public function rechercheAvanceeAction(Request $request)   //Outil de recherche avancé
     {
-     
-        $recherche_Fiche_motCle = $motCle->get('motCle');
+        $recherche_motCle = $request->get('motCle');
+        $recherche_titre = $request->get('titre');
+        $recherche_descriptif = $request->get('descriptif');
         
-        return $this->render('IdentiteFicheBundle:Recherche:recherche.html.twig', array(
-                'resultats' => $this->getDoctrine()->getRepository('IdentiteFicheBundle:Fiche')->rechercherFiche($recherche_Fiche_motCle,'titre'),
-        ));
         
+        //var_dump($recherche_descriptif);
+        //var_dump($recherche_descriptif);
+        
+        
+        if($recherche_titre == 'on' && $recherche_descriptif == NULL){   //titre
+            $coin = $this->getDoctrine()->getRepository('IdentiteFicheBundle:Fiche')->rechercherFiche($recherche_motCle);
+            var_dump($recherche_titre);
+
+        }
+        
+        elseif($recherche_descriptif == 'on' && $recherche_titre == NULL){ //descriptif
+            $coin = $this->getDoctrine()->getRepository('IdentiteFicheBundle:Fiche')->rechercherFicheAvance2($recherche_motCle);
+            var_dump($recherche_descriptif);
+        }
+        
+        elseif($recherche_descriptif == 'on' && $recherche_titre == 'on'){ //descriptif ET titre
+            $coin = $this->getDoctrine()->getRepository('IdentiteFicheBundle:Fiche')->rechercherFicheAvance($recherche_motCle);
+            var_dump($recherche_descriptif);
+            var_dump($recherche_titre);
+        }
+        
+        else{
+            $coin = array();
+        }
+        return $this->render('IdentiteFicheBundle:Recherche:recherche.html.twig', array('resultats' => $coin));
     }
+    
+        /*
+
+    public function rechercheAvanceeAction(Request $request)   //Outil de recherche avancé
+    { 
+        $recherche_titre = $request->get('motCle');
+        $recherche_descriptif = $request->get('descriptif');
+        
+        var_dump($recherche_titre);
+        //var_dump($recherche_descriptif);
+        
+        
+        if ($recherche_titre != '' && $recherche_descriptif != ''){
+            
+            $coin = $this->getDoctrine()->getRepository('IdentiteFicheBundle:Fiche')->rechercherFicheAvance($recherche_titre,$recherche_descriptif);
+        
+   
+        }
+        else{
+            $coin = array();
+        }
+        return $this->render('IdentiteFicheBundle:Recherche:recherche.html.twig', array('resultats' => $coin));
+    }*/
 }
