@@ -28,17 +28,17 @@ security:
          
               
         inscription_firewall:
-            pattern: ^/inscription/nouveau
+            pattern: ^/inscription
             anonymous: ~
             
         secured_area:
             pattern: ^/
             form_login: ~
             logout:
-               path: /logout
+               path: /deconnection
                target: /
 
 
     access_control:
         - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/inscription/nouveau, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/inscription, roles: IS_AUTHENTICATED_ANONYMOUSLY }

@@ -23,7 +23,4 @@ rechercheFiche:
     resource: "@IdentiteFicheBundle/Resources/config/routing.yml"
     prefix: /
 
-IdentiteProfilBundle_inscription:
-    resource: "@IdentiteProfilBundle/Resources/config/routing/identifiantsweb.yml"
-    prefix:    /inscription 
 

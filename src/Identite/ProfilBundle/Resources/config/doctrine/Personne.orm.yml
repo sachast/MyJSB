@@ -60,6 +60,7 @@ Identite\ProfilBundle\Entity\Personne:
     role:
       targetEntity: Role
       mappedBy: personne
+      cascade: ["persist"]
     ficheRessource:
       targetEntity: Identite\FicheBundle\Entity\Fiche
       mappedBy: animateursRessources

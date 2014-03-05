@@ -5,80 +5,64 @@ namespace Identite\ProfilBundle\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-use Identite\ProfilBundle\Entity\IdentifiantsWeb;
-use Identite\ProfilBundle\Form\IdentifiantsWebType;
+use Identite\ProfilBundle\Entity\Personne;
+use Identite\ProfilBundle\Form\PersonneType;
 
 /**
- * IdentifiantsWeb controller.
+ * Personne controller.
  *
  */
-class IdentifiantsWebController extends Controller
+class PersonneController extends Controller
 {
 
     /**
-     * Lists all IdentifiantsWeb entities.
+     * Lists all Personne entities.
      *
      */
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('IdentiteProfilBundle:IdentifiantsWeb')->findAll();
+        $entities = $em->getRepository('IdentiteProfilBundle:Personne')->findAll();
 
-        return $this->render('IdentiteProfilBundle:IdentifiantsWeb:index.html.twig', array(
+        return $this->render('IdentiteProfilBundle:Personne:index.html.twig', array(
             'entities' => $entities,
         ));
     }
     /**
-     * Creates a new IdentifiantsWeb entity.
+     * Creates a new Personne entity.
      *
      */
     public function createAction(Request $request)
     {
-        $entity = new IdentifiantsWeb();
+        $entity = new Personne();
         $form = $this->createCreateForm($entity);
         $form->handleRequest($request);
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-			
-			$factory = $this->get('security.encoder_factory');
-			$encoder = $factory->getEncoder($entity);
-			$password = $encoder->encodePassword($entity->getMotDePasse(),'sha512');
-			// getsalt retourne le type de cryptage.
-			$entity->setMotDePasse($password);
-			
-			$role =$em->getRepository('IdentiteProfilBundle:Role')->findOneByNom('notValidate');
-			
-			
-			$personne = $entity->getPersonne();
-			$personne->addRole($role);
-			
-			
-			
             $em->persist($entity);
-			
             $em->flush();
 
             return $this->redirect($this->generateUrl('inscription_show', array('id' => $entity->getId())));
         }
 
-        return $this->render('IdentiteProfilBundle:IdentifiantsWeb:new.html.twig', array(
+        return $this->render('IdentiteProfilBundle:Personne:new.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView(),
         ));
     }
 
     /**
-    * Creates a form to create a IdentifiantsWeb entity.
+    * Creates a form to create a Personne entity.
     *
-    * @param IdentifiantsWeb $entity The entity
+    * @param Personne $entity The entity
     *
     * @return \Symfony\Component\Form\Form The form
     */
-    private function createCreateForm(IdentifiantsWeb $entity)
+    private function createCreateForm(Personne $entity)
     {
-        $form = $this->createForm(new IdentifiantsWebType(), $entity, array(
+        $form = $this->createForm(new PersonneType(), $entity, array(
             'action' => $this->generateUrl('inscription_create'),
             'method' => 'POST',
         ));
@@ -89,78 +73,75 @@ class IdentifiantsWebController extends Controller
     }
 
     /**
-     * Displays a form to create a new IdentifiantsWeb entity.
+     * Displays a form to create a new Personne entity.
      *
      */
     public function newAction()
     {
-        $entity = new IdentifiantsWeb();
+        $entity = new Personne();
         $form   = $this->createCreateForm($entity);
 
-        return $this->render('IdentiteProfilBundle:IdentifiantsWeb:new.html.twig', array(
+        return $this->render('IdentiteProfilBundle:Personne:new.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView(),
         ));
     }
 
     /**
-     * Finds and displays a IdentifiantsWeb entity.
+     * Finds and displays a Personne entity.
      *
      */
     public function showAction($id)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('IdentiteProfilBundle:IdentifiantsWeb')->find($id);
+        $entity = $em->getRepository('IdentiteProfilBundle:Personne')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find IdentifiantsWeb entity.');
+            throw $this->createNotFoundException('Unable to find Personne entity.');
         }
 
         $deleteForm = $this->createDeleteForm($id);
 
-        return $this->render('IdentiteProfilBundle:IdentifiantsWeb:show.html.twig', array(
+        return $this->render('IdentiteProfilBundle:Personne:show.html.twig', array(
             'entity'      => $entity,
-            'delete_form' => $deleteForm->createView(),
-			'user' => $entity->getPersonne()->getNom() . ' '. $entity->getPersonne()->getPrenom(),
-			));
+            'delete_form' => $deleteForm->createView(),        ));
     }
 
     /**
-     * Displays a form to edit an existing IdentifiantsWeb entity.
+     * Displays a form to edit an existing Personne entity.
      *
      */
     public function editAction($id)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('IdentiteProfilBundle:IdentifiantsWeb')->find($id);
+        $entity = $em->getRepository('IdentiteProfilBundle:Personne')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find IdentifiantsWeb entity.');
+            throw $this->createNotFoundException('Unable to find Personne entity.');
         }
 
         $editForm = $this->createEditForm($entity);
         $deleteForm = $this->createDeleteForm($id);
 
-        return $this->render('IdentiteProfilBundle:IdentifiantsWeb:edit.html.twig', array(
+        return $this->render('IdentiteProfilBundle:Personne:edit.html.twig', array(
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
-			'user' => $entity->getLogin(),
         ));
     }
 
     /**
-    * Creates a form to edit a IdentifiantsWeb entity.
+    * Creates a form to edit a Personne entity.
     *
-    * @param IdentifiantsWeb $entity The entity
+    * @param Personne $entity The entity
     *
     * @return \Symfony\Component\Form\Form The form
     */
-    private function createEditForm(IdentifiantsWeb $entity)
+    private function createEditForm(Personne $entity)
     {
-        $form = $this->createForm(new IdentifiantsWebType(), $entity, array(
+        $form = $this->createForm(new PersonneType(), $entity, array(
             'action' => $this->generateUrl('inscription_update', array('id' => $entity->getId())),
             'method' => 'PUT',
         ));
@@ -170,17 +151,17 @@ class IdentifiantsWebController extends Controller
         return $form;
     }
     /**
-     * Edits an existing IdentifiantsWeb entity.
+     * Edits an existing Personne entity.
      *
      */
     public function updateAction(Request $request, $id)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('IdentiteProfilBundle:IdentifiantsWeb')->find($id);
+        $entity = $em->getRepository('IdentiteProfilBundle:Personne')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find IdentifiantsWeb entity.');
+            throw $this->createNotFoundException('Unable to find Personne entity.');
         }
 
         $deleteForm = $this->createDeleteForm($id);
@@ -193,14 +174,14 @@ class IdentifiantsWebController extends Controller
             return $this->redirect($this->generateUrl('inscription_edit', array('id' => $id)));
         }
 
-        return $this->render('IdentiteProfilBundle:IdentifiantsWeb:edit.html.twig', array(
+        return $this->render('IdentiteProfilBundle:Personne:edit.html.twig', array(
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));
     }
     /**
-     * Deletes a IdentifiantsWeb entity.
+     * Deletes a Personne entity.
      *
      */
     public function deleteAction(Request $request, $id)
@@ -210,10 +191,10 @@ class IdentifiantsWebController extends Controller
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $entity = $em->getRepository('IdentiteProfilBundle:IdentifiantsWeb')->find($id);
+            $entity = $em->getRepository('IdentiteProfilBundle:Personne')->find($id);
 
             if (!$entity) {
-                throw $this->createNotFoundException('Unable to find IdentifiantsWeb entity.');
+                throw $this->createNotFoundException('Unable to find Personne entity.');
             }
 
             $em->remove($entity);
@@ -224,7 +205,7 @@ class IdentifiantsWebController extends Controller
     }
 
     /**
-     * Creates a form to delete a IdentifiantsWeb entity by id.
+     * Creates a form to delete a Personne entity by id.
      *
      * @param mixed $id The entity id
      *

@@ -7,7 +7,7 @@ inscription_show:
     defaults: { _controller: "IdentiteProfilBundle:Personne:show" }
 
 inscription_new:
-    pattern:  /nouveau
+    pattern:  /new
     defaults: { _controller: "IdentiteProfilBundle:Personne:new" }
 
 inscription_create:
