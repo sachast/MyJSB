@@ -11,13 +11,7 @@ identite_profil:
     prefix:   /
 login_check:
     pattern: /login_check
-<<<<<<< HEAD
 
-rechercheFiche:
-    resource: "@IdentiteFicheBundle/Resources/config/routing.yml"
-    prefix: /
-=======
 IdentiteProfilBundle_inscription:
     resource: "@IdentiteProfilBundle/Resources/config/routing/identifiantsweb.yml"
     prefix:    /inscription 
->>>>>>> 5bda3a40597660524095cae5639246424240f07d

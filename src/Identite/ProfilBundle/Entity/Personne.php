@@ -258,8 +258,14 @@ class Personne
     public function addRole(Role $role)
     {
         $this->role[] = $role;
-
+        $role->addPersonne($this);
+        
         return $this;
+    }
+    
+    public function setRole(Role $role)
+    {
+    	return $this->addRole($role);
     }
 
     /**
@@ -270,6 +276,8 @@ class Personne
     public function removeRole(Role $role)
     {
         $this->role->removeElement($role);
+        $role->removePersonne($this);
+        
     }
 
     /**

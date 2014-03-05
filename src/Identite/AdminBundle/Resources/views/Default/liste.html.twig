@@ -1,0 +1,11 @@
+{% extends '::index.html.twig' %}
+
+{% block titrePage %}Liste{% endblock %}
+{% block contenu %}
+<br />
+<p>Liste des utilisateurs à valider</p><ul>
+	{% for utilisateur in utilisateursEnAttente %}
+		<li><a href="{{ path("valider_un_utilisateur",{ 'id': utilisateur.id }) }}">{{ utilisateur.nom }} {{ utilisateur.prenom }}</a></li>
+	{% endfor %}
+</ul>
+{% endblock %} 

@@ -382,7 +382,7 @@ class IdentifiantsWeb implements AdvancedUserInterface, \Serializable, Equatable
 	public function setDernierConnection()
 	{
 		$this->derniereConnection = new \DateTime();
-		return $this;
+		return $this->getLogin();
 	}
 	
 	

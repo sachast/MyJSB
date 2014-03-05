@@ -1,1 +1,11 @@
 {% extends '::index.html.twig' %}
+
+{% block titrePage %}Bonjour {{ prenom }}{% endblock %}
+{% block contenu %}
+	<br \>
+	<br \>
+	<h2>Mes notifications</h2>
+	<br \><p>
+	-> <a href="{{ path('validation_utilisateurs') }}">Nouveaux utilisateurs en attente de validation ({{ utilisateursEnAttente|length }})</a>
+	</p>
+{% endblock %} 

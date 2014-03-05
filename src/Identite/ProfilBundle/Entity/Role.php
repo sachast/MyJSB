@@ -82,7 +82,7 @@ class Role
      * @param \Identite\Personne $personne
      * @return Role
      */
-    public function addPersonne(\Identite\Personne $personne)
+    public function addPersonne(Personne $personne)
     {
         $this->personne[] = $personne;
 
@@ -94,7 +94,7 @@ class Role
      *
      * @param \Identite\Personne $personne
      */
-    public function removePersonne(\Identite\Personne $personne)
+    public function removePersonne(Personne $personne)
     {
         $this->personne->removeElement($personne);
     }
