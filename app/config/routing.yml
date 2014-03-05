@@ -1,3 +1,7 @@
+identite_admin:
+    resource: "@IdentiteAdminBundle/Resources/config/routing.yml"
+    prefix:   /
+
 identite_fiche:
     resource: "@IdentiteFicheBundle/Resources/config/routing.yml"
     prefix:   /
