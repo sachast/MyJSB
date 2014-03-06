@@ -76,7 +76,6 @@ class DefaultController extends Controller
     			$entity->setValideLe(new \DateTime());
     			$iw = $em->getRepository('IdentiteProfilBundle:IdentifiantsWeb')->findOneByPersonne($id);
     			$iw->setActif(true);
-    			//$entity->setIdentifiantsWeb($iw);
     		}
     		$em->flush();
     
