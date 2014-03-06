@@ -36,7 +36,6 @@ class IdentifiantsWebRepository extends EntityRepository implements UserProvider
 		{
 			throw new UnsupportedUserException();
 		}
-		
 		return $this->find($user->getId());
 	}
 	
@@ -44,7 +43,7 @@ class IdentifiantsWebRepository extends EntityRepository implements UserProvider
 	 * @see \Symfony\Component\Security\Core\User\UserProviderInterface::supportsClass()
 	 */
 	public function supportsClass($class) {
-		
+    
 		return $class = 'IdentifiantsWeb';
 
 	}

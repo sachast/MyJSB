@@ -1,5 +1,6 @@
 Identite\FicheBundle\Entity\Fiche:
   type: entity
+  repositoryClass: Identite\FicheBundle\Entity\FicheRepository
   lifecycleCallbacks:
     prePersist: [setCreeLe]
     preUpdate: [setModifieLe]

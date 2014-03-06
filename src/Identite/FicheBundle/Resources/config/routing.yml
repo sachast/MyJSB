@@ -9,4 +9,8 @@ IdentiteFicheBundle_fiche:
 rechercherFiche:
         pattern: /rechercheFiche
         defaults: { _controller: IdentiteFicheBundle:Fiche:Recherche }
-        
+
+recherche:
+        pattern: /recherche
+        defaults: { _controller: IdentiteFicheBundle:Fiche:RechercheAvancee }
+                    

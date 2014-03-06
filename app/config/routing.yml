@@ -17,8 +17,3 @@ logout:
 IdentiteProfilBundle_inscription:
     resource: "@IdentiteProfilBundle/Resources/config/routing/identifiantsweb.yml"
     prefix:    /inscription 
-
-
-rechercheFiche:
-    resource: "@IdentiteFicheBundle/Resources/config/routing.yml"
-    prefix: /
