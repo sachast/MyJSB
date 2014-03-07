@@ -25,7 +25,16 @@
     <li> titre - descriptif</li>
     </br></br>
 {% for resultat in resultats %}
-    <li>{{ resultat.titre }} - {{ resultat.descriptif }}</li>
+
+    <li>
+    -------------------------------------------</br>
+
+    <u>Titre</u> : {{ resultat.titre }}</br>
+    <u>Descriptif</u> : {{ resultat.descriptif }}</br>
+    <u>Age min</u> : {{ resultat.ageMin }}</br>
+    <u>Age max</u> : {{ resultat.ageMax }} </li>
+
+    </br></br>
 {% endfor %}
 
 </ul>

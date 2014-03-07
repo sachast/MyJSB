@@ -35,12 +35,12 @@ security:
             pattern: ^/inscription
             anonymous: ~
             
-        #secured_area:
-            #pattern: ^/
-            #form_login: ~
-            #logout:
-               #path: /deconnection
-               #target: /
+        secured_area:
+            pattern: ^/
+            form_login: ~
+            logout:
+               path: /deconnection
+               target: /
 
 
     access_control:
