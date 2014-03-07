@@ -6,6 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Identite\ProfilBundle\Entity\IdentifiantsWeb;
+use Symphony\Component\Validator\Constraints as Assert; 
 
 class PersonneType extends AbstractType
 {

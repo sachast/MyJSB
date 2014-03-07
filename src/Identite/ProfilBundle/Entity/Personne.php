@@ -5,7 +5,7 @@
 namespace Identite\ProfilBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Symfony\Component\Validator\Constraints as Assert;
 
 /*
  * @ORM\Entity(repositoryClass="Identite\ProfilBundle\Entity\PersonneRepository")
@@ -23,11 +23,15 @@ class Personne
 
     /**
      * @var string
+	 * @Assert\Length( min="2",max = "30", minMessage = "VOus devez avoir un mots de passe de plus de {{ limit }} caracteres")
+	 * @Assert\NotBlank()
      */
     private $nom;
 
     /**
      * @var string
+	 *	@Assert\Length( min="2",max = "30", minMessage = "VOus devez avoir un mots de passe de plus de {{ limit }} caracteres")
+	 * @Assert\NotBlank()
      */
     private $prenom;
 

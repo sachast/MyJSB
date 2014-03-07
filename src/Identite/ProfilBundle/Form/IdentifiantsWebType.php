@@ -5,6 +5,8 @@ namespace Identite\ProfilBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Validator\ExecutionContext;
 
 class IdentifiantsWebType extends AbstractType
 {
@@ -14,9 +16,11 @@ class IdentifiantsWebType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+
         $builder
             ->add('login')
-            ->add('motDePasse')
+									
+            ->add('motDePasse','password')
            // ->add('derniereConnection')
             //->add('valideJusque')
             //->add('actif')

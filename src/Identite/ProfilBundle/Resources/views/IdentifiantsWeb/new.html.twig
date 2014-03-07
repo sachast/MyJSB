@@ -3,9 +3,10 @@
 	 Inscription
 {% endblock %}
 {% block contenu %}
-
-    {{ form(form) }}
-
+{% if erreur %}
+	{{ erreur }}
+{% endif %}
+ {{ form(form) }}
         <ul class="record_actions">
     <li>
         <a href="{{ path('inscription') }}">

@@ -36,36 +36,54 @@ class IdentifiantsWebController extends Controller
     public function createAction(Request $request)
     {
         $entity = new IdentifiantsWeb();
+		 
+		 
+		
         $form = $this->createCreateForm($entity);
         $form->handleRequest($request);
+		
 
         if ($form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
+		
 			
+			
+            $em = $this->getDoctrine()->getManager();
+			/*
+			-------------------------------------------------
+				Check si il le login existe ou non
+			*/
+			$utilisateur = $em->getRepository('IdentiteProfilBundle:IdentifiantsWeb')->findOneByLogin($entity->getLogin());
+			if ($utilisateur == null){
 			$factory = $this->get('security.encoder_factory');
 			$encoder = $factory->getEncoder($entity);
 			$password = $encoder->encodePassword($entity->getMotDePasse(),'sha512');
 			// getsalt retourne le type de cryptage.
-			$entity->setMotDePasse($password);
-			
+			//gestion cryptage du mdp
+			$entity->setMotDePasse($password);			
 			$role =$em->getRepository('IdentiteProfilBundle:Role')->findOneByNom('notValidate');
-			
-			
 			$personne = $entity->getPersonne();
 			$personne->addRole($role);
-			
-			
 			
             $em->persist($entity);
 			
             $em->flush();
 
             return $this->redirect($this->generateUrl('inscription_show', array('id' => $entity->getId())));
-        }
+         }
+		 }
+		 else{
+		 return $this->render('IdentiteProfilBundle:IdentifiantsWeb:new.html.twig', array(
+            'entity' => $entity,
+            'form'   => $form->createView(),
+			'erreur' => 'le login existe déjà',
+        ));
+		}
+	   
 
         return $this->render('IdentiteProfilBundle:IdentifiantsWeb:new.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView(),
+			'erreur' => 'le login existe déjà',
         ));
     }
 
@@ -100,6 +118,7 @@ class IdentifiantsWebController extends Controller
         return $this->render('IdentiteProfilBundle:IdentifiantsWeb:new.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView(),
+			'erreur' => null,
         ));
     }
 

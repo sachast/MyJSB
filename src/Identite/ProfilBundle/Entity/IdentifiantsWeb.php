@@ -9,9 +9,12 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\EquatableInterface;
 use Symfony\Component\Security\Core\User\AdvancedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
+//use Symfony\Component\Validator\Constraints\UniqueEntity; 
 /**
  * IdentifiantsWeb
+ 
  */
 class IdentifiantsWeb implements AdvancedUserInterface, \Serializable, EquatableInterface
 {
@@ -59,12 +62,16 @@ class IdentifiantsWeb implements AdvancedUserInterface, \Serializable, Equatable
         return $this->url;
     }
     /**
-     * @var string
+     * 
+	 *   @Assert\Length( min="3",max = "20",minMessage = "VOus devez avoir un login de plus de {{ limit }} caracteres.", maxMessage = "pas plus.")
+	 *	@Assert\NotBlank()
      */
     private $login;
 
     /**
      * @var string
+	 * @Assert\Length( min="5",max = "30", minMessage = "VOus devez avoir un mots de passe de plus de {{ limit }} caracteres")
+	 * @Assert\NotBlank()
      */
     private $motDePasse;
 
@@ -199,7 +206,7 @@ class IdentifiantsWeb implements AdvancedUserInterface, \Serializable, Equatable
 		return $this;
         
     }
-	 public function setActif1()
+	 public function setDesactive()
     {
         
 		$this->actif = 0;
