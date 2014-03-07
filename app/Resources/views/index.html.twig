@@ -92,13 +92,10 @@
 			<div id="blocCadreGauche">
 				<ul>
 				{% block menuGauche %}
-					 <li><a href="#">Menu 1</a></li>
-					 <li><a href="#">Menu 2</a></li>
-					 <li><a href="#">Menu 3</a></li>
-					 <li><a href="#">Menu 4</a></li>					 
-					 <li><a href="#">Menu 5</a></li>
-					 <li><a href="#">Menu 6</a></li>
-					 <li><a href="#">Menu 7</a></li>
+					{% if is_granted('Admin') %}
+						 <li><a href="{{ path('identite_admin_homepage') }}">Espace Admin</a></li>
+						 <li><a href="{{ path('recherche') }}">Recherche avancée des fiches</a></li>
+					{% endif %}
 				{% endblock %}
 				</ul>
 			</div>

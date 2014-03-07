@@ -330,7 +330,7 @@ class IdentifiantsWeb implements AdvancedUserInterface, \Serializable, Equatable
 	}
 	
 	public function isEqualTo(UserInterface $user){
-		return $this->login === $user->getLogin();
+		return $this->login === $user->getLogin() && $this->motDePasse === $user->getPassword();
 	}
 
 	/* (non-PHPdoc)

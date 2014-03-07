@@ -35,12 +35,6 @@ Identite\ProfilBundle\Entity\Personne:
       targetEntity: IdentifiantsWeb
       mappedBy: personne
       cascade: ["persist"]
-    fichesValides:
-      targetEntity: Identite\FicheBundle\Entity\Fiche
-      mappedBy: validePar
-    debriefing:
-      targetEntity: Identite\FicheBundle\Entity\Debriefing
-      mappedBy: personne
   manyToMany:
     fichesEcrites:
       targetEntity: Identite\FicheBundle\Entity\Fiche
@@ -65,3 +59,10 @@ Identite\ProfilBundle\Entity\Personne:
     ficheRessource:
       targetEntity: Identite\FicheBundle\Entity\Fiche
       mappedBy: animateursRessources
+  oneToMany:
+    fichesValides:
+        targetEntity: Identite\FicheBundle\Entity\Fiche
+        mappedBy: validePar
+    debriefing:
+      targetEntity: Identite\FicheBundle\Entity\Debriefing
+      mappedBy: personne
